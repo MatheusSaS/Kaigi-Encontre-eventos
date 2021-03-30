@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} {{title}} {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<section class="section-header overflow-hidden pt-7 pt-lg-12 pb-9 pb-lg-12 bg-gray-200 text-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="{{url_for('index')}}">
+                    <div class="card bg-danger border-gray-300 p-1 p-md-4 mb-4 mb-lg-0">
+                        <div class="card-body text-center">
+                            <div class="icon icon-shape icon-shape-light rounded-circle mb-4 float-center">
+                                <span class="fas fa-donate"></span>
+                            </div>
+                            <h3 class="h5 mb-3 ">Doação/Pedido</h3>                        
+                        </div>
+                    </div>
+                </a>                
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#">
+                    <div class="card bg-green border-light p-1 p-md-4 mb-4 mb-lg-0">
+                        <div class="card-body text-center">
+                            <div class="icon icon-shape icon-shape-light rounded mb-4">
+                                <span class="fas fa-hands"></span>
+                            </div>
+                            <h3 class="h5 mb-3">Ajudar</h3>                        
+                        </div>
+                    </div>
+                </a>                
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="#">
+                    <div class="card bg-info border-light p-1 p-md-4 mb-4 mb-lg-0">
+                        <div class="card-body text-center">
+                            <div class="icon icon-shape icon-shape-light organic-radius mb-4">
+                                <span class="fas fa-smile-beam"></span>
+                            </div>
+                            <h3 class="h5 mb-3">Vaquinha</h3>                        
+                        </div>
+                    </div>
+                </a>                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+{% endblock javascripts %}
