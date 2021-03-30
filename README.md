@@ -7,7 +7,7 @@ Para rodar o projeto:
 =================
 <!--ts-->
    * Instale o Python ( 3.8 )
-   * Intale a biblioteca virtualenv - pip install virtualenv
+   * Instale a biblioteca virtualenv - pip install virtualenv
    * Inicie a virtualenv - python -m virtualenv myenv
    * Instale as bibliotecas - pip install -r requirements.txt
    * Rode o run.py
