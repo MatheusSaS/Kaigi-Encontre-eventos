@@ -4,11 +4,24 @@ from wtforms import form
 from app import app, db, photos
 from .models import Addorderhelp, Category
 from .forms import Addorderhelps
+from PIL import Image
 import secrets,os
 
 def CategoryList():
     category = Category.query.order_by(Category.id.desc()).all()
     return list(category)
+
+def resize(root,new_root,file):
+    new_width = 600
+    new_heigth = 400
+    
+    path = os.path.join(root,file)
+    new_img_path = os.path.join(new_root,file)
+    
+    pillow_img = Image.open(path)
+    new_img = pillow_img.resize((new_width,new_heigth), Image.LANCZOS)
+    new_img.save(new_img_path)
+        
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -32,7 +45,9 @@ def addHelps():
         description = form.description.data
         type = request.form.get('type')
         category = request.form.get('category')
-        image = photos.save(request.files.get('image_1'),name=secrets.token_hex(10)+ ".")   
+        image = photos.save(request.files.get('image_1'),name=secrets.token_hex(10)+ ".") 
+        
+        resize(app.config['UPLOADED_PHOTOS_DEST'],app.config['UPLOADED_PHOTOS_DEST_CONVERT'],image)        
         
         addHelps = Addorderhelp(name=name,description=description,type=type,category_id=category,image_1=image)
         db.session.add(addHelps)
@@ -64,3 +79,21 @@ def alterehelps(id):
             
         return redirect(url_for('addHelps'))
     return redirect(url_for('addHelps'))
+
+@app.route('/deletehelp/<int:id>',methods=['POST'])
+def deletehelp(id):
+    if request.method == 'POST':
+        deletehelp = Addorderhelp.query.get_or_404(id)
+        db.session.delete(deletehelp)
+        db.session.commit()
+        flash('Pedido excluido!')
+        return redirect(url_for('index'))
+    return redirect(url_for('index'))
+
+@app.route('/contact')
+def contact():
+    return render_template('order_helps/contact.html')
+
+@app.route('/about')
+def about():
+    return render_template('order_helps/about-company.html')

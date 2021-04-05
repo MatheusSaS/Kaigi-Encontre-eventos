@@ -3,44 +3,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <p><strong>Pixel</strong> is a large User Interface Kit that will help you prototype and design beautiful, creative and modern websites.</p>
-                <ul class="social-buttons mb-5 mb-lg-0">
+                <p><strong>Help.me</strong> criado com o intuito de ajudar aqueles que precisam.</p>
+                <ul class="social-buttons mb-5 mb-lg-0">                    
                     <li>
-                        <a href="https://twitter.com/themesberg" aria-label="twitter social link" class="icon icon-xs icon-white"
-                            data-toggle="tooltip" data-placement="top" title="Follow us on Twitter">
-                            <span class="fab fa-twitter"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/Themesberg-214738555737136/"
-                            class="icon icon-xs icon-white" aria-label="facebook social link" data-toggle="tooltip"
-                            data-placement="top" title="Like us on Facebook">
-                            <span class="fab fa-facebook"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/themesberg" aria-label="github social link" class="icon icon-xs icon-white"
-                            data-toggle="tooltip" data-placement="top" title="Star us on Github">
+                        <a href="https://github.com/MatheusSaS/helpme-tcc" aria-label="github social link" class="icon icon-xs icon-white"
+                            data-toggle="tooltip" data-placement="top" title="Github">
                             <span class="fab fa-github"></span>
                         </a>
                     </li>
-                    <li>
-                        <a href="https://dribbble.com/themesberg"
-                            class="icon icon-xs icon-white" aria-label="dribbble social link" data-toggle="tooltip"
-                            data-placement="top" title="Like us on Dribbble">
-                            <span class="fab fa-dribbble"></span>
-                        </a>
-                    </li>
+    
                 </ul>
             </div>
             <div class="col-6 col-md-2 mb-5 mb-lg-0">
-                <h3 class="h5">Themesberg</h3>
+                <h3 class="h5">Paginas</h3>
                 <ul class="links-vertical">
-                    <li><a target="_blank" href="https://themesberg.com/blog">Blog</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/products">Products</a></li>
-                    <li><a target="_blank" href="https://themesberg.com/about">About Us</a>
+                    <li><a target="_blank" href="{{url_for('index')}}">Home</a></li>
+                    <li><a target="_blank" href="{{url_for('addHelps')}}">Pedidos/Doações</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about">Sobre</a>
                     </li>
-                    <li><a target="_blank" href="https://themesberg.com/contact">Contact Us</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/contact">Contato</a></li>
                 </ul>
             </div>
             <div class="col-6 col-md-2 mb-5 mb-lg-0">
@@ -55,34 +36,34 @@
                 </ul>
             </div>
             <div class="col-12 col-md-4 mb-5 mb-lg-0">
-                <h3 class="h5">Subscribe</h3>
-                <p class="text-muted font-small">Join our mailing list. We write rarely, but only the best content.</p>
+                <h3 class="h5">Entre em contato:</h3>
+                <p class="text-muted font-small">Junte-se à nossa lista de endereços. Escrevemos raramente, mas apenas o melhor conteúdo.</p>
                 <form action="#">
                     <div class="form-row mb-2">
                         <div class="col-12">
-                            <label class="h6 font-weight-normal text-muted" for="exampleInputEmail3">Email address</label>
+                            <label class="h6 font-weight-normal text-muted" for="exampleInputEmail3">Email</label>
                             <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email" aria-label="Subscribe form" id="exampleInputEmail3" required>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-tertiary shadow-soft btn-block" data-loading-text="Sending">
-                                <span>Subscribe</span>
+                                <span>Enviar</span>
                             </button>
                         </div>
                     </div>
                 </form>
-                <p class="text-muted font-small m-0">We’ll never share your details. See our <a class="text-white" href="#">Privacy Policy</a></p>
+                <p class="text-muted font-small m-0">Nunca compartilharemos seus detalhes. Veja nossa <a class="text-white" href="#">Politica de Privacidade</a></p>
             </div>
         </div>
         <hr class="my-5">
         <div class="row">
             <div class="col mb-md-0">
-                <a href="https://themesberg.com" target="_blank" class="d-flex justify-content-center">
-                    <img src="/static/assets/img/themesberg.svg" height="25" class="mb-3" alt="Themesberg Logo">
+                <a target="_blank" class="d-flex justify-content-center">
+                    <img src="/static/assets/img/brand/logo.png" height="25" class="mb-3" alt="Themesberg Logo">
                 </a>
             <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
-                <p class="font-weight-normal font-small mb-0">&copy; Themesberg
+                <p class="font-weight-normal font-small mb-0">&copy; help.me
                     <span class="current-year">2020</span> 
-                    - coded by <a target="_blank" href="https://appseed.us">AppSeed</a>.
+                    - coded by <a target="_blank" href="https://github.com/MatheusSaS/helpme-tcc">MatheusSaS</a>.
                 </p>
                 </div>
             </div>

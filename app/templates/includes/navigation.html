@@ -1,10 +1,9 @@
 
-    <header class="header-global">
-        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-primary headroom navbar-dark">
+    <header class="header-global ">
+        <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-dark headroom navbar-dark">
             <div class="container position-relative">
-                <a class="navbar-brand mr-lg-5" href="./index.html">
-                    <img class="navbar-brand-dark" src="/static/assets/img/brand/light.svg" alt="Logo Pixel Light">
-                    <img class="navbar-brand-light" src="/static/assets/img/brand/dark.svg" alt="Logo Pixel Dark">
+                <a class="navbar-brand mr-lg-5" href="{{url_for('index')}}">
+                    <img class="navbar-brand-dark" src="/static/assets/img/brand/logo.png" alt="Logo Pixel Light">                    
                 </a>
                 <div class="navbar-collapse collapse" id="navbar_global">
                     <div class="navbar-collapse-header">
@@ -26,12 +25,8 @@
                                 <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                             </a>
                             <ul class="dropdown-menu" id="pages_submenu">
-                                <li><a class="dropdown-item" href="/about-company.html">About</a></li>
-                                <li><a class="dropdown-item" href="/contact.html">Contact</a></li>
-                                <li><a class="dropdown-item" href="/pricing.html">Pricing</a></li>
-                                <li><a class="dropdown-item" href="/services.html">Services</a></li>
-                                <li><a class="dropdown-item" href="/sign-in.html">Sign in</a></li>
-                                <li><a class="dropdown-item" href="/sign-up.html">Sign up</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('about')}}">About</a></li>
+                                <li><a class="dropdown-item" href="{{url_for('contact')}}">Contact</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown mega-dropdown">
@@ -58,7 +53,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col pl-0">
+                                    <div class="col pl-2">
                                         <ul class="list-style-none">
                                             <li><a class="dropdown-item" href="/ui-accordions.html">Accordions</a></li>
                                             <li><a class="dropdown-item" href="/ui-alerts.html">Alerts</a></li>
@@ -70,33 +65,7 @@
                                             <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/plugins/jquery-counters/" target="_blank">Counters <span class="badge badge-tertiary ml-3">Pro</span></a></li>
                                             <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/components/buttons/#button-dropdown" target="_blank">Dropdowns <span class="badge badge-tertiary ml-3">Pro</span></a></li>
                                         </ul>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <ul class="list-style-none">
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/components/e-commerce/" target="_blank">E-commerce <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item" href="/ui-forms.html">Forms</a></li>
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/components/icon-boxes/" target="_blank">Icon Boxes <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item" href="/ui-modals.html">Modals</a></li>
-                                            <li><a class="dropdown-item" href="/ui-navs.html">Navs</a></li>
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/plugins/owl-carousel/" target="_blank">Owl Carousels <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item" href="/ui-pagination.html">Pagination</a></li>
-                                            <li><a class="dropdown-item" href="/ui-popovers.html">Popovers</a></li>
-                                            <li><a class="dropdown-item" href="/ui-progress-bars.html">Progress Bars</a></li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="col pl-0">
-                                        <ul class="list-style-none">
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/components/icon-boxes/#steps" target="_blank">Steps <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item" href="/ui-tabs.html">Tabs</a> </li>
-                                            <li><a class="dropdown-item" href="/ui-toasts.html">Toasts</a> </li>
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/components/timelines/" target="_blank">Timelines <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item" href="/ui-tooltips.html">Tooltips</a></li>
-                                            <li><a class="dropdown-item" href="/ui-typography.html">Typography</a></li>
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://themesberg.com/docs/pixel-bootstrap/plugins/chart-js/" target="_blank">Charts <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                            <li><a class="dropdown-item d-flex align-items-center justify-content-between" href="https://demo.themesberg.com/pixel-pro/html/components/widgets.html">Widgets <span class="badge badge-tertiary ml-3">Pro</span></a></li>
-                                        </ul>
-                                    </div>
+                                    </div>                                  
                                 </div>
                             </div>
                         </li>
