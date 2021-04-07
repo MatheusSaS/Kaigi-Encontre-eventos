@@ -20,3 +20,4 @@ bycrypt = Bcrypt(app)
 
 from app.admin import routes
 from app.order_helps import routes
+from app.vaquinha import routes

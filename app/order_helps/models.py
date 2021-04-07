@@ -13,6 +13,9 @@ class Addorderhelp(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'),nullable=False)
     category = db.relationship('Category',backref=db.backref('posts', lazy=True))
     
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),nullable=False)
+    user = db.relationship('User',backref=db.backref('posts', lazy=True))
+    
     image_1 = db.Column(db.String(150), nullable=False,default='image.jpg')
     image_2 = db.Column(db.String(150), nullable=False,default='image.jpg')
     image_3 = db.Column(db.String(150), nullable=False,default='image.jpg')

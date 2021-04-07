@@ -70,6 +70,8 @@ def login():
         user = User.query.filter_by(email = form.email.data).first()
         if user and bycrypt.check_password_hash(user.password, form.password.data):
             session['email'] = form.email.data
+            session['id'] = user.id
+            session['name'] = user.name
             flash('Login efetuado corretamente')
             return redirect(request.args.get('next') or url_for('index'))
         else:

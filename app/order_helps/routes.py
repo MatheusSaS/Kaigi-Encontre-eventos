@@ -4,6 +4,7 @@ from wtforms import form
 from app import app, db, photos
 from .models import Addorderhelp, Category
 from .forms import Addorderhelps
+from app.admin.model import User
 from PIL import Image
 import secrets,os
 
@@ -33,23 +34,23 @@ def index():
     
     form = Addorderhelps(request.form)
     category = CategoryList()
-    helps = Addorderhelp.query.all()
+    helps = Addorderhelp.query.filter_by(user_id = session['id'])
     return render_template('order_helps/index.html',title='Index',form=form,category=category,helps=helps)
 
 @app.route('/addhelps',methods=['GET','POST'])
 def addHelps():
     form = Addorderhelps(request.form)
-    category = CategoryList()
-    if request.method == 'POST':                     
+    category = CategoryList()    
+    
+    if request.method == 'POST':                                   
         name = form.name.data
         description = form.description.data
         type = request.form.get('type')
         category = request.form.get('category')
-        image = photos.save(request.files.get('image_1'),name=secrets.token_hex(10)+ ".") 
-        
+        image = photos.save(request.files.get('image_1'),name=secrets.token_hex(10)+ ".")         
         resize(app.config['UPLOADED_PHOTOS_DEST'],app.config['UPLOADED_PHOTOS_DEST_CONVERT'],image)        
-        
-        addHelps = Addorderhelp(name=name,description=description,type=type,category_id=category,image_1=image)
+            
+        addHelps = Addorderhelp(name=name,description=description,type=type,category_id=category,image_1=image,user_id=session['id'])
         db.session.add(addHelps)
         flash('Pedido adicionado corretamente')
         db.session.commit()        
