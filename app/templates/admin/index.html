@@ -3,7 +3,24 @@
 {% block title %} {{title}} {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+    .hide {
+        display: none;
+    }
+
+    .result {
+        position: absolute;
+        width: 100%;
+        max-width: 920px;
+        cursor: pointer;
+        overflow-y: auto;
+        max-height: 400px;
+        box-sizing: border-box;
+        z-index: 1001;
+    }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
 <div class="section section-lg pt-5 pt-md-7 bg-soft">
@@ -21,7 +38,23 @@
                     <div class="card-body p-2">
                         <div class="list-group dashboard-menu list-group-sm">
                             <a href="{{url_for('category')}}"
-                                class="d-flex list-group-item border-0 list-group-item-action ">Categoria <span
+                                class="d-flex list-group-item border-0 list-group-item-action ">Categorias<span
+                                    class="icon icon-xs ml-auto"><span class="fas fa-chevron-right"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="list-group dashboard-menu list-group-sm">
+                            <a href="{{url_for('donation')}}"
+                                class="d-flex list-group-item border-0 list-group-item-action ">Doações <span
+                                    class="icon icon-xs ml-auto"><span class="fas fa-chevron-right"></span></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="list-group dashboard-menu list-group-sm">
+                            <a href="{{url_for('plataforms')}}"
+                                class="d-flex list-group-item border-0 list-group-item-action ">Plataformas <span
                                     class="icon icon-xs ml-auto"><span class="fas fa-chevron-right"></span></span>
                             </a>
                         </div>

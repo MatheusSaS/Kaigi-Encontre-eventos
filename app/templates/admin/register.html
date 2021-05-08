@@ -3,7 +3,24 @@
 {% block title %} {{title}} {% endblock %} 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<style>
+    .hide {
+        display: none;
+    }
+
+    .result {
+        position: absolute;
+        width: 100%;
+        max-width: 920px;
+        cursor: pointer;
+        overflow-y: auto;
+        max-height: 400px;
+        box-sizing: border-box;
+        z-index: 1001;
+    }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
     <!-- Section -->

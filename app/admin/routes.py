@@ -1,13 +1,22 @@
 from flask import render_template, session, request, redirect, url_for,flash
 from wtforms import form
-from app import app, db, bycrypt
+from app import app, db, bycrypt,photos
 from .forms import RegistrationForm,LoginForm
 from .model import User
-from app.order_helps.models import Category
+import secrets
+from app.events.models import Category, Donation, Plataforms
 
 def CategoryList():
     category = Category.query.order_by(Category.id.desc()).all()
     return list(category)
+
+def DonationList():
+    donation = Donation.query.order_by(Donation.id.desc()).all()
+    return list(donation)
+
+def Plataformslist():
+    donation = Plataforms.query.order_by(Plataforms.id.desc()).all()
+    return list(donation)
 
 @app.route('/admin')
 def admin():
@@ -21,7 +30,8 @@ def category():
     return render_template('admin/category.html',category=category)
 
 @app.route('/addCategory', methods=['POST'])
-def addCategory():    
+def addCategory():        
+       
     add_category = Category(name=request.form.get('category'))       
     db.session.add(add_category)
     flash('categoria adicionada')
@@ -48,7 +58,75 @@ def deletCategory(id):
         flash('Categoria deletada')
         return redirect(url_for('category'))
     return redirect(url_for('category'))
+
+@app.route('/donation',methods=['GET'])
+def donation():
+    donations = DonationList()    
+    return render_template('admin/donation.html',donations=donations)
+
+@app.route('/addDonation', methods=['POST'])
+def addDonation():    
+    add_donation = Donation(name=request.form.get('donation'))       
+    db.session.add(add_donation)
+    flash('Doação adicionada')
+    db.session.commit()
+    return redirect(url_for('donation'))
+
+@app.route('/alterDonation/<int:id>',methods=['GET','POST'])
+def alterDonation(id):
+    alter_donation = Donation.query.get_or_404(id)
+    donation = request.form.get('donation')
+    if request.method == 'POST':
+        alter_donation.name = donation
+        flash('Donation alterada')
+        db.session.commit()
+        return redirect(url_for('donation'))
+    return redirect(url_for('donation'))
+
+@app.route('/deletDonation/<int:id>',methods=['POST'])
+def deletDonation(id):
+    delete_donation= Donation.query.get_or_404(id)
+    if request.method == "POST":
+        db.session.delete(delete_donation)
+        db.session.commit()
+        flash('Donation deletada')
+        return redirect(url_for('donation'))
+    return redirect(url_for('donation'))
+
+
+@app.route('/plataforms',methods=['GET'])
+def plataforms():
+    plataforms = Plataformslist()    
+    return render_template('admin/plataforms.html',plataforms=plataforms)   
        
+@app.route('/addPlataforms', methods=['POST'])
+def addPlataforms():    
+    add_donation = Plataforms(name=request.form.get('plataforms'))       
+    db.session.add(add_donation)
+    flash('Plataforma adicionada')
+    db.session.commit()
+    return redirect(url_for('plataforms'))
+
+@app.route('/alterPlataforms/<int:id>',methods=['GET','POST'])
+def alterPlataforms(id):
+    alter_plataforma = Plataforms.query.get_or_404(id)
+    plataforma = request.form.get('plataforms')
+    if request.method == 'POST':
+        alter_plataforma.name = plataforma
+        flash('Plataforma alterada')
+        db.session.commit()
+        return redirect(url_for('plataforms'))
+    return redirect(url_for('plataforms'))
+       
+@app.route('/deletPlataforms/<int:id>',methods=['POST'])
+def deletPlataforms(id):
+    delete_plataforma = Plataforms.query.get_or_404(id)
+    if request.method == "POST":
+        db.session.delete(delete_plataforma)
+        db.session.commit()
+        flash('Plataforma deletada')
+        return redirect(url_for('plataforms'))
+    return redirect(url_for('plataforms'))
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -73,7 +151,7 @@ def login():
             session['id'] = user.id
             session['name'] = user.name
             flash('Login efetuado corretamente')
-            return redirect(request.args.get('next') or url_for('index'))
+            return redirect(request.args.get('next'))
         else:
             flash('Senha incorreto, tente novamente','danger')
         
@@ -86,4 +164,4 @@ def forgotPassword():
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('index'))
+    return redirect(url_for('home'))

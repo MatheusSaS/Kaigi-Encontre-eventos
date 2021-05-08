@@ -1,0 +1,529 @@
+<!--
+
+=========================================================
+* Pixel Lite Bootstrap Design System
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kits/pixel-lite-free-bootstrap-4-ui-kit
+* Copyright 2019 Themesberg (https://www.themesberg.com)
+* License Themesberg (Crafty Dwarf LLC) (https://themesberg.com/licensing)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Primary Meta Tags -->
+    <title>
+        Help.me -   
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="Help.me">
+    <meta name="keywords" content="bootstrap, Bootstrap Design System, accessiblity, accessibility first, open source, open source Bootstrap Design System">
+    <link rel="canonical" href="https://themesberg.com/product/ui-kits/pixel-lite-free-bootstrap-4-ui-kit">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="http://127.0.0.1:5000/static/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://127.0.0.1:5000/static/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://127.0.0.1:5000/static/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="http://127.0.0.1:5000/static/assets/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="http://127.0.0.1:5000/static/assets/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Fontawesome -->
+    <link type="text/css" href="Help.me%20-_files/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="Help.me%20-_files/owl.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous">
+    <link rel="stylesheet" href="Help.me%20-_files/owl_002.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous">
+    <!-- Pixel CSS -->
+    <link type="text/css" href="Help.me%20-_files/pixel.css" rel="stylesheet">
+
+    
+<style>
+    .img-responsive {
+        height: 550px;
+    }
+
+    @media (max-width: 975px) {
+        .img-responsive {
+            height: 200px;
+        }
+
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .result {
+        position: absolute;
+        width: 100%;
+        max-width: 920px;
+        cursor: pointer;
+        overflow-y: auto;
+        max-height: 400px;
+        box-sizing: border-box;
+        z-index: 1001;
+    }
+
+    .header {
+        position: relative;
+        text-align: center;
+        background: linear-gradient(60deg, #1c2540 0%, #1c2540 100%);
+        color: white;
+    }
+
+    .logo {
+        width: 50px;
+        fill: white;
+        padding-right: 15px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .inner-header {
+        height: 65vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .flex {
+        /*Flexbox for containers*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .waves {
+        position: relative;
+        width: 100%;
+        height: 15vh;
+        margin-bottom: -7px;
+        /*Fix for safari gap*/
+        min-height: 100px;
+        max-height: 150px;
+    }
+
+    .content {
+        position: relative;
+        height: 20vh;
+        text-align: center;
+        background-color: white;
+    }
+
+    /* Animation */
+
+    .parallax>use {
+        animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+    }
+
+    .parallax>use:nth-child(1) {
+        animation-delay: -2s;
+        animation-duration: 7s;
+    }
+
+    .parallax>use:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 10s;
+    }
+
+    .parallax>use:nth-child(3) {
+        animation-delay: -4s;
+        animation-duration: 13s;
+    }
+
+    .parallax>use:nth-child(4) {
+        animation-delay: -5s;
+        animation-duration: 20s;
+    }
+
+    @keyframes move-forever {
+        0% {
+            transform: translate3d(-90px, 0, 0);
+        }
+
+        100% {
+            transform: translate3d(85px, 0, 0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .waves {
+            height: 40px;
+            min-height: 40px;
+        }
+
+        .content {
+            height: 30vh;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+    }
+</style>
+
+
+</head>
+
+<body>
+
+    <header class="header-global ">
+    <nav id="navbar-main" aria-label="Primary navigation" class="navbar navbar-main navbar-expand-lg navbar-theme-dark headroom navbar-dark headroom--not-top headroom--not-bottom headroom--unpinned">
+        <div class="container position-relative">
+            <a class="navbar-brand mr-lg-5" href="http://127.0.0.1:5000/">
+                <img class="navbar-brand-dark" src="Help.me%20-_files/logo.png" alt="Logo Pixel Light">
+            </a>
+            <div class="navbar-collapse collapse" id="navbar_global">
+                <div class="col-12 col-md-6 text-center">
+                    <div class="input-group mb-2" style="width: auto;">
+                        <input type="text" name="search" class="form-control border-with border-1 form-control-flush shadow-none " placeholder="Pesquisar Evento" id="search" autocomplete="off">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><span class="fas fa-search text-info"></span></span>
+                        </div>
+                    </div>
+                    <div class="input-group hide" id="card_result">
+                        <ul class="list-group result mt-2">
+                            <div class="card bg-white border-light shadow">
+                                <table class="table table-sm-responsive table-hover">
+                                    <tbody id="result">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navbar-collapse-header">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a href="http://127.0.0.1:5000/#features">
+                                <img src="Help.me%20-_files/dark.svg" alt="Logo Pixel">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <a href="#navbar_global" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="navbar-nav ml-auto nav-flex-icons">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
+                            <span class="nav-link-inner-text">Paginas</span>
+                            <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="pages_submenu">
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/about">Sobre</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/contact">Contato</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown mega-dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="components_menu_item" aria-expanded="false" aria-label="Toggle components menu item">
+                            <span class="nav-link-inner-text">Components</span>
+                            <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+                        </a>
+                        <div class="dropdown-menu" id="components_menu_item">
+                            <div class="row">
+                                <div class="col-lg-6 inside-bg d-none d-lg-block">
+                                    <div class="justify-content-center bg-tertiary text-white">
+                                        <div class="px-6 pb-4 pt-5">
+                                            <img src="Help.me%20-_files/megamenu_image.png" alt="Pixel Components">
+                                        </div>
+                                        <div class="z-2 pb-4 text-center">
+                                            <a href="http://127.0.0.1:5000/ui-all.html" class="btn btn-primary btn-icon animate-up-2 mb-2 mb-sm-0 mr-3">
+                                                <span class="mr-1"><span class="fas fa-th-large"></span></span>
+                                                UI components
+                                            </a>
+                                            <a href="https://themesberg.com/docs/pixel-bootstrap/getting-started/overview/" target="_blank" class="btn btn-outline-white btn-icon animate-up-2 mb-2 mb-sm-0">
+                                                <span class="mr-1"><span class="fas fa-book"></span></span>
+                                                UI Docs
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col pl-2">
+                                    <ul class="list-style-none">
+                                        <li><a class="dropdown-item" href="http://127.0.0.1:5000/ui-accordions.html">Meus pedidos/doações</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
+                            <span class="nav-link-inner-text"><i class="fas fa-user mr-2"></i>Admin</span>
+                            <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+                        </a>
+                        <ul class="dropdown-menu" id="pages_submenu">
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/myEvents">Área do organizador</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/contact"><i class="fas fa-ticket-alt mr-2"></i>Ingresso</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/contact"><i class="fas fa-user mr-2"></i>Minha conta</a></li>
+                            <li><a class="dropdown-item" href="http://127.0.0.1:5000/contact"><i class="fas fa-sign-out-alt mr-2"></i>Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center">
+                <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+    <main>
+        <!-- 
+        <div class="preloader bg-dark flex-column justify-content-center align-items-center">
+            <svg id="loader-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 78.4">
+                <path fill="#fff" d="M10,0h1.2V11.2H0V10A10,10,0,0,1,10,0Z"/>
+                <rect fill="none" stroke="#fff" stroke-width="11.2" x="40" y="17.6" width="0" height="25.6"/>
+                <rect fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="11.2" x="23" y="35.2" width="0" height="25.6"/>
+                <path fill="#fff" d="M52.8,35.2H64V53.8a7,7,0,0,1-7,7H52.8V35.2Z"/>
+                <rect fill="none" stroke="#fff" stroke-width="11.2" x="6" y="52.8" width="0" height="25.6"/>
+                <path fill="#fff" d="M52.8,0H57a7,7,0,0,1,7,7h0v4.2H52.8V0Z"/>
+                <rect fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="11.2" x="57.8" y="17.6" width="0" height="11.2"/>
+                <rect fill="none" stroke="#fff" stroke-width="11.2" x="6" y="35.2" width="0" height="11.2"/>
+                <rect fill="none" stroke="#fff" stroke-width="11.2" x="40.2" y="49.6" width="0" height="11.2"/>
+                <path fill="#fff" d="M17.6,67.2H28.8v1.2a10,10,0,0,1-10,10H17.6V67.2Z"/>
+                <rect fill="none" stroke="#fff" stroke-opacity="0.4" stroke-width="28.8" x="31.6" width="0" height="11.2"/>
+                <rect fill="none" stroke="#fff" x="14" stroke-width="28.8" y="17.6" width="0" height="11.2"/>
+            </svg>
+        </div>
+         -->
+        
+  
+
+
+        
+<section class="section-header bg-dark">
+
+
+</section>
+<div class="header">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"></use>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"></use>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"></use>
+        </g>
+    </svg>
+</div>
+<div class="container mt-lg-n12 z-2 ">
+    <div class="card bg-white border-light flex-lg-row align-items-center g-0 ">
+        <img class="img-responsive d-block rounded" src="Help.me%20-_files/eventos.jpg" alt="Third slide">
+    </div>
+    <div class="btn-wrapper my-4 text-center">
+        <button class="btn btn-icon-only btn-pill btn-facebook" type="button" aria-label="facebook button" title="facebook button">
+            <span aria-hidden="true" class="fab fa-facebook"></span>
+        </button>
+        <button class="btn btn-icon-only btn-pill btn-facebook" type="button" aria-label="facebook button" title="facebook button">
+            <span aria-hidden="true" class="fab fa-facebook"></span>
+        </button>
+        <button class="btn btn-icon-only btn-pill btn-facebook" type="button" aria-label="facebook button" title="facebook button">
+            <span aria-hidden="true" class="fab fa-facebook"></span>
+        </button>
+    </div>
+    <div class="container float-right ">
+        <div class="row float-right ">
+            <div class="col-10 ">
+                <div class="card border-light">
+
+                    <h5 class="card-header bg-dark">Featured</h5>
+                    <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="section section-lg line-bottom-light ">
+
+</section>
+
+
+
+
+
+    </main>
+    
+<footer class="footer pt-7 pb-6 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <p><strong>Help.me</strong> criado com o intuito de ajudar aqueles que precisam.</p>
+                <ul class="social-buttons mb-5 mb-lg-0">                    
+                    <li>
+                        <a href="https://github.com/MatheusSaS/helpme-tcc" aria-label="github social link" class="icon icon-xs icon-white" data-toggle="tooltip" data-placement="top" title="" data-original-title="Github">
+                            <span class="fab fa-github"></span>
+                        </a>
+                    </li>
+    
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                <h3 class="h5">Paginas</h3>
+                <ul class="links-vertical">
+                    <li><a target="_blank" href="http://127.0.0.1:5000/">Home</a></li>
+                    <li><a target="_blank" href="http://127.0.0.1:5000/addhelps">Pedidos/Doações</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/about">Sobre</a>
+                    </li>
+                    <li><a target="_blank" href="https://themesberg.com/contact">Contato</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-2 mb-5 mb-lg-0">
+                <h3 class="h5">Other</h3>
+                <ul class="links-vertical">
+                    <li><a href="https://themesberg.com/docs/pixel-bootstrap/getting-started/overview/" target="_blank">Docs
+                            <span class="badge badge-sm badge-secondary ml-2">v3.0</span></a></li>
+                    <li><a href="https://themesberg.com/docs/pixel-bootstrap/getting-started/changelog" target="_blank">Changelog</a></li>
+                    <li><a target="_blank" href="https://themesberg.com/licensing">License</a>
+                    </li>
+                    <li><a target="_blank" href="https://github.com/themesberg/pixel-bootstrap-ui-kit/issues">Support</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 mb-5 mb-lg-0">
+                <h3 class="h5">Entre em contato:</h3>
+                <p class="text-muted font-small">Junte-se à nossa lista de endereços. Escrevemos raramente, mas apenas o melhor conteúdo.</p>
+                <form action="#">
+                    <div class="form-row mb-2">
+                        <div class="col-12">
+                            <label class="h6 font-weight-normal text-muted" for="exampleInputEmail3">Email</label>
+                            <input type="email" class="form-control mb-2" placeholder="example@company.com" name="email" aria-label="Subscribe form" id="exampleInputEmail3" required="">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-tertiary shadow-soft btn-block" data-loading-text="Sending">
+                                <span>Enviar</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="text-muted font-small m-0">Nunca compartilharemos seus detalhes. Veja nossa <a class="text-white" href="#">Politica de Privacidade</a></p>
+            </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+            <div class="col mb-md-0">
+                <a target="_blank" class="d-flex justify-content-center">
+                    <img src="Help.me%20-_files/logo.png" class="mb-3" alt="Themesberg Logo" height="25">
+                </a>
+            <div class="d-flex text-center justify-content-center align-items-center" role="contentinfo">
+                <p class="font-weight-normal font-small mb-0">© help.me
+                    <span class="current-year">2021</span> 
+                    - coded by <a target="_blank" href="https://github.com/MatheusSaS/helpme-tcc">MatheusSaS</a>.
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <!-- Core -->
+    <script src="Help.me%20-_files/jquery.js"></script>
+    <script src="Help.me%20-_files/popper.js"></script>
+    <script src="Help.me%20-_files/bootstrap.js"></script>
+    <script src="Help.me%20-_files/headroom.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="Help.me%20-_files/on-screen.js"></script>
+    <script src="Help.me%20-_files/nouislider.js"></script>
+    <script src="Help.me%20-_files/bootstrap-datepicker.js"></script>
+    <script src="Help.me%20-_files/bootstrap-tagsinput.js"></script>
+    <script src="Help.me%20-_files/jquery_002.js"></script>
+    <script src="Help.me%20-_files/jarallax.js"></script>
+    <script src="Help.me%20-_files/smooth-scroll.js"></script>
+    <script src="Help.me%20-_files/vivus.js"></script>
+    <script src="Help.me%20-_files/bootstrap-timepicker.js"></script>
+
+
+    <!-- pixel JS -->
+    <script src="Help.me%20-_files/pixel.js"></script>
+    <!-- Specific Page JS goes HERE  -->
+    
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#search').keyup(function () {
+            $('#result').html('');
+            var searchField = $('#search').val();
+
+            if (searchField != '') {
+                $('#card_result').show();
+                var expression = new RegExp(searchField, "i");
+                var count = 0;
+                var teste = '';
+
+                $.getJSON('/json_list', function (data) {
+                    $.each(data, function (key, value) {
+                        len = value.length;
+                        for (var i = 0; i < len; i++) {
+                            if (value[i]['name'].search(expression) != -1) {
+                                $('#result').text('');
+                                count++;
+                                teste = teste + `<tr>                                                        
+                                                    <td class="float-left">
+                                                        <a href="https://www.sympla.com.br/eventos"><img class="card-img-top rounded" style="height: 80px;  width: 150px;" src="static/images/f7b34c07324a7600a95c.png"></a>
+                                                    </td>
+                                                    <td class="float-left">
+                                                        <div class="d-flex align-items-center">
+                                                            ${value[i]['description']}
+                                                        </div>
+                                                    </td>
+                                                </tr>`;
+                            }
+                        }
+                        if (count == 0) {
+                            $('#result').text('Nenhum evento encontrado');
+                        }
+                        else {
+                            $('#result').append(`   <tr>
+                                                        <td class="float-left">
+                                                            <h2 class="fas fa-search text-info float-left"></h2>
+                                                        </td>
+                                                        <td class="float-left">
+                                                            <div class="d-flex align-items-center">
+                                                                ${searchField}
+                                                            </div>
+                                                            <small class="float-left text-info">Em Eventos</small>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><h5 class="text-dark float-left">Resultados</h5></td>
+                                                    </tr>`+ teste);
+                        }
+                    })
+                });
+            }
+            else {
+                $('#card_result').hide();
+            }
+        });
+        $('#hide_search').click(function () {
+            $('#card_result').hide();
+        });
+    });
+</script>
+
+</body></html>
