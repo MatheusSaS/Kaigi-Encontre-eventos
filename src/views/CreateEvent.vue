@@ -160,7 +160,7 @@
                   <div
                     v-on:click="openModalPaid()"
                     type="button"
-                    class="focus:outline-none text-white py-2.5 px-8 rounded-lg bg-yellow-500 hover:bg-yellow-400"
+                    class="focus:outline-none cursor-pointer text-white py-2.5 px-8 rounded-lg bg-yellow-500 hover:bg-yellow-400"
                   >
                     Pago
                   </div>
@@ -169,13 +169,13 @@
 
                   <div
                     type="button"
-                    class="focus:outline-none text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
+                    class="focus:outline-none cursor-pointer text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
                   >
                     Gratuito
                   </div>
                   <div
                     type="button"
-                    class="focus:outline-none text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
+                    class="focus:outline-none cursor-pointer text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
                   >
                     Doação
                   </div>
