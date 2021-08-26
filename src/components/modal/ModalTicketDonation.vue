@@ -1,20 +1,19 @@
 <template>
-  <div class="ModalTicketPaid">
+  <div class="ModalTicketDonation">
     <div
-      class="modal-pago fixed w-full h-100 inset-0 z-50 overflow-auto flex justify-center items-center animated fadeIn faster dark:bg-dark-third border border-dark-third "
+      class="modal-doacao fixed w-full h-100 inset-0 z-50 overflow-auto flex justify-center items-center animated fadeIn faster dark:bg-dark-third border border-dark-third "
       style="background: rgba(0,0,0,.7); display: none;"
     >
       <div
-        class="shadow-lg modal-container mt-96 sm:mt-0 bg-white dark:bg-dark-second w-11/12 md:max-w-6xl mx-auto rounded z-50 overflow-y-auto"
+        class="shadow-lg modal-container mt-60 sm:mt-0 bg-white dark:bg-dark-second w-11/12 md:max-w-6xl mx-auto rounded z-50 overflow-y-auto"
       >
         <div
           class="modal-content mt-10 sm:mt-0 py-4 text-left px-6"
-          :class="{ 'mt-96': halfprice }"
         >
           <!--Title-->
           <div class="flex justify-between pb-3">
             <h3 class="text-2xl text-center">
-              Criar ingresso <strong>pago</strong>
+              Criar ingresso <strong>doação</strong>
             </h3>
             <div
               v-on:click="modalClose()"
@@ -68,144 +67,15 @@
                   >Preço
                 </label>
                 <div class="flex">
-                  <div class="mt-1 relative rounded-md shadow-sm">
-                    <div
-                      class="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none"
-                    >
-                      <span class="text-gray-500 sm:text-sm">
-                        R$
-                      </span>
-                    </div>
-                    <Field
-                      type="text"
-                      name="Price"
-                      class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                      placeholder="0.00"
-                      :class="{ 'border border-red-600': errors.Price }"
-                    />
-                    <div class="absolute inset-y-0 right-0 flex items-center">
-                      <label for="currency" class="sr-only">Currency</label>
-                      <select
-                        id="currency"
-                        name="currency"
-                        class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-                      >
-                        <option>BRL</option>
-                        <option>USD</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.Price }}
-                </label>
-              </div>
-              <div class="w-15 px-3 mb-5">
-                <label for="" class="text-sm text-gray-700 dark:text-white"
-                  >Total</label
-                >
-                <div class="flex mt-5">
-                  <p class="text-green-500">R$:10</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="md:flex md:justify-between -mx-3 ml-1">
-              <label class="inline-flex items-center mt-3">
-                <input
-                  type="checkbox"
-                  value="True"
-                  v-model="halfprice"
-                  class="form-checkbox h-5 w-5 text-gray-600"
-                  unchecked
-                /><span class="ml-2 text-gray-700 dark:text-white"
-                  >Criar meia-entrada para este ingresso:</span
-                >
-              </label>
-            </div>
-
-            <div v-if="halfprice === true">
-              <div class="md:flex md:justify-between -mx-3 mt-5">
-                <div class="w-full px-3 mb-5">
-                  <label for="" class="text-sm text-gray-700 dark:text-white">
-                    Nome meio impresso
-                  </label>
                   <div class="flex">
-                    <Field
-                      name="NameEventHelf"
-                      type="text"
-                      v-model="descriptionHelfprice"
-                      class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-dark-second dark:text-gray-300 dark:bg-dark-second border focus:border-blue-600  dark:focus:border-blue-600 cursor-not-allowed"
-                      disabled
-                    />
-                  </div>
+                  <input
+                    name="Price"
+                    value="Grátis"
+                    type="text"
+                    class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-dark-second dark:text-gray-300 dark:bg-dark-second border focus:border-blue-600  dark:focus:border-blue-600 cursor-not-allowed"
+                    disabled
+                  />
                 </div>
-                <div class="w-full px-3 mb-5">
-                  <label
-                    for=""
-                    class="text-sm text-gray-700 dark:text-white "
-                    :class="{
-                      'text-red-600 dark:text-red-600': errors.AmountHelf,
-                    }"
-                    >Quantidade</label
-                  >
-                  <div class="flex">
-                    <Field
-                      @keypress="validateNumber"
-                      name="AmountHelf"
-                      type="text"
-                      class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                      :class="{ 'border border-red-600': errors.AmountHelf }"
-                    />
-                  </div>
-                  <label for="" class="text-sm text-red-600">
-                    {{ errors.AmountHelf }}
-                  </label>
-                </div>
-                <div class="w-full sm:w-2/5 px-3 mb-5">
-                  <label for="" class="text-sm text-gray-700 dark:text-white"
-                    >Preço
-                  </label>
-                  <div class="flex">
-                    <div class="mt-1 relative rounded-md shadow-sm">
-                      <div
-                        class="absolute inset-y-0 left-0 pl-1 flex items-center pointer-events-none"
-                      >
-                        <span class="text-gray-500 sm:text-sm">
-                          R$
-                        </span>
-                      </div>
-                      <Field
-                        type="text"
-                        name="PriceHelf"
-                        class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                        placeholder="0.00"
-                        :class="{ 'border border-red-600': errors.PriceHelf }"
-                      />
-                      <div class="absolute inset-y-0 right-0 flex items-center">
-                        <label for="currency" class="sr-only">Currency</label>
-                        <select
-                          id="currency"
-                          name="currency"
-                          class="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-                        >
-                          <option>BRL</option>
-                          <option>USD</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <label for="" class="text-sm text-red-600">
-                    {{ errors.PriceHelf }}
-                  </label>
-                </div>
-                <div class="w-15 px-3 mb-5">
-                  <label for="" class="text-sm text-gray-700 dark:text-white"
-                    >Total</label
-                  >
-                  <div class="flex mt-5">
-                    <p class="text-green-500">R$:10</p>
-                  </div>
                 </div>
               </div>
             </div>
@@ -341,7 +211,7 @@ import { Form, Field } from "vee-validate";
 import * as Yup from "yup";
 
 export default {
-  name: "ModalTicketPaid",
+  name: "ModalTicketDonation",
   components: {
     DatePicker,
     Form,
@@ -355,21 +225,12 @@ export default {
       Amount: Yup.string()
         .required("Campo  Obrigatório")
         .min(1, "A quantidade tem que ser maior que 0"),
-      Price: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
       Amountminimum: Yup.string()
         .required("Campo  Obrigatório")
         .min(1, "O valor menimo é 1"),
       Amountmax: Yup.string()
         .required("Campo  Obrigatório")
         .min(1, "O valor menimo é 1"),
-      AmountHelf: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
-      PriceHelf: Yup.string()
-        .min(1, "O valor menimo é 1")
-        .required("Campo  Obrigatório"),
     });
 
     const onSubmit = (values) => {
@@ -386,13 +247,12 @@ export default {
     return {
       dateStartTicket: new Date(),
       dateEndTicket: new Date(),
-      halfprice: "",
       descriptionHelfprice: "",
     };
   },
   methods: {
     modalClose() {
-      const modal = document.querySelector(".modal-pago");
+      const modal = document.querySelector(".modal-doacao");
       modal.classList.remove("fadeIn");
       modal.classList.add("fadeOut");
       setTimeout(() => {

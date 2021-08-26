@@ -164,20 +164,142 @@
                   >
                     Pago
                   </div>
-
                   <ModalTicketPaid></ModalTicketPaid>
 
                   <div
+                    v-on:click="openModalFree()"
                     type="button"
                     class="focus:outline-none cursor-pointer text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
                   >
                     Gratuito
                   </div>
+                  <ModalTicketFree></ModalTicketFree>
+
                   <div
+                    v-on:click="openModalDonation()"
                     type="button"
                     class="focus:outline-none cursor-pointer text-white py-2.5 px-5  rounded-lg bg-yellow-500 hover:bg-yellow-400 ml-3"
                   >
                     Doação
+                  </div>
+                </div>
+                <ModalTicketDonation></ModalTicketDonation>
+
+                <div
+                  class="w-full mb-8 mt-6 overflow-hidden rounded-lg shadow-lg"
+                >
+                  <div class="w-full overflow-x-auto">
+                    <table class="w-full">
+                      <thead>
+                        <tr
+                          class="text-md font-semibold tracking-wide text-left text-gray-700 dark:text-white bg-gray-100 dark:bg-dark-main uppercase border-b border-gray-300 dark:border-gray-600"
+                        >
+                          <th class="px-4 py-3">Name</th>
+                          <th class="px-4 py-3">Age</th>
+                          <th class="px-4 py-3">Date</th>
+                          <th class="px-4 py-3 text-center">Ações</th>
+                        </tr>
+                      </thead>
+                      <tbody class=" bg-white dark:bg-dark-second">
+                        <tr class="text-gray-700 dark:text-white">
+                          <td class="px-4 py-3 ">
+                            <div class="flex items-center text-sm">
+                              <div
+                                class="relative w-8 h-8 mr-3 rounded-full md:block"
+                              >
+                                <img
+                                  class="object-cover w-full h-full rounded-full"
+                                  src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                                  alt=""
+                                  loading="lazy"
+                                />
+                                <div
+                                  class="absolute inset-0 rounded-full shadow-inner"
+                                  aria-hidden="true"
+                                ></div>
+                              </div>
+                              <div>
+                                <p
+                                  class="font-semibold text-gray-700 dark:text-white"
+                                >
+                                  Sufyan
+                                </p>
+                                <p
+                                  class="text-xs text-gray-600 dark:text-gray-300"
+                                >
+                                  Developer
+                                </p>
+                              </div>
+                            </div>
+                          </td>
+                          <td class="px-4 py-3 text-ms font-semibold">
+                            22
+                          </td>
+                          <td class="px-4 py-3 text-sm ">6/4/2000</td>
+                          <td class="py-4 px-3 ">
+                            <div class="flex item-center justify-center">
+                              <div
+                                class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                  />
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                                  />
+                                </svg>
+                              </div>
+                              <div
+                                class="w-4 mr-2 transform hover:text-blue-500 hover:scale-110"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                  />
+                                </svg>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -224,7 +346,9 @@
 import NavBar from "@/components/NavBar.vue";
 import UploadImages from "vue-upload-drop-images";
 import LitepieDatepicker from "litepie-datepicker";
-import ModalTicketPaid from "@/components/modal/ModalTicketPaid.vue"
+import ModalTicketPaid from "@/components/modal/ModalTicketPaid.vue";
+import ModalTicketFree from "@/components/modal/ModelTicketFree.vue";
+import ModalTicketDonation from "@/components/modal/ModalTicketDonation.vue";
 
 import Editor from "@tinymce/tinymce-vue";
 
@@ -236,6 +360,8 @@ export default {
     LitepieDatepicker,
     editor: Editor,
     ModalTicketPaid,
+    ModalTicketFree,
+    ModalTicketDonation,
   },
   setup() {
     const dateValue = [];
@@ -255,6 +381,18 @@ export default {
     },
     openModalPaid() {
       const modal = document.querySelector(".modal-pago");
+      modal.classList.remove("fadeOut");
+      modal.classList.add("fadeIn");
+      modal.style.display = "flex";
+    },
+    openModalFree() {
+      const modal = document.querySelector(".modal-gratis");
+      modal.classList.remove("fadeOut");
+      modal.classList.add("fadeIn");
+      modal.style.display = "flex";
+    },
+    openModalDonation() {
+      const modal = document.querySelector(".modal-doacao");
       modal.classList.remove("fadeOut");
       modal.classList.add("fadeIn");
       modal.style.display = "flex";
