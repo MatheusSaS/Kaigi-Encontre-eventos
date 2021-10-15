@@ -1,111 +1,270 @@
 <template>
-  <section class="absolute w-full top-0">
-
-
-    <div class="container mx-auto px-4 h-full">
-      <div class="flex content-center items-center justify-center h-full">
-        <div class="w-full lg:w-4/12 px-4 pt-32">
-          <div
-            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0"
-          >
-            <div class="rounded-t mb-0 px-6 py-6">
-              <div class="text-center mb-3">
-                <h6 class="text-gray-600 text-sm font-bold">Entrar Com</h6>
-              </div>
-              <div class="btn-wrapper text-center">
-                <button
-                  class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                  type="button"
-                  style="transition: all 0.15s ease 0s;"
-                >
-                  <img
-                    alt="..."
-                    class="w-5 mr-1"
-                    src="../assets/images/github.png"
-                  />Github
-                </button>
-                <button
-                  class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs"
-                  type="button"
-                  style="transition: all 0.15s ease 0s;"
-                >
-                  <img
-                    alt="..."
-                    class="w-5 mr-1"
-                    src="../assets/images/google.png"
-                  />Google
-                </button>
-              </div>
-              <hr class="mt-6 border-b-1 border-gray-400" />
-            </div>
-            <div class="flex-auto px-4 lg:px-5 py-6 pt-0">
-              <div class="text-gray-500 text-center mb-3 font-bold">
-                <small>Ou faça login com credenciais</small>
-              </div>
-              <form>
-                <div class="relative w-full mb-3">
-                  <label
-                    class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                    >Email</label
-                  >
-                  <input
-                    type="email"
-                    class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded-md text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                    placeholder="Email"
-                    style="transition: all 0.15s ease 0s;"
-                  />
-                </div>
-                <div class="relative w-full mb-3">
-                  <label
-                    class="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    for="grid-password"
-                    >Senha</label
-                  >
-                  <input
-                    type="password"
-                    class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded-md text-sm shadow focus:outline-none focus:shadow-outline w-full"
-                    style="transition: all 0.15s ease 0s;"
-                  />
-                </div>
-                <div>
-                  <label class="inline-flex items-center cursor-pointer">
-                    <input
-                      id="customCheckLogin"
-                      type="checkbox"
-                      class="form-checkbox text-gray-800 ml-1 w-5 h-5"
+  <div class="Login">
+    <NavBar />
+    <div class="Header">
+      <svg
+        class="Header__svg"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1337.97 684.43"
+      >
+        <path
+          class="Header__shape bigSquare"
+          fill="#16d5d1"
+          d="M546.519 349.271l86.383-56.098 56.097 86.383-86.383 56.098z"
+        />
+        <path
+          class="Header__shape triangle"
+          fill="none"
+          stroke="#ff4676"
+          stroke-width="8"
+          d="M372.15 462.17L321 434.58l-4.88 56.16z"
+        />
+        <circle
+          class="Header__shape bigCircle"
+          fill="#ff4676"
+          cx="1076.52"
+          cy="262.17"
+          r="59"
+        />
+        <path
+          class="Header__shape littleSquare"
+          fill="#ffe430"
+          d="M285.523 262.61l12.372-53.59 53.59 12.372-12.372 53.59z"
+        />
+        <circle
+          class="Header__shape hoop"
+          fill="none"
+          stroke="#ffe430"
+          stroke-width="13"
+          cx="905.52"
+          cy="447.17"
+          r="45"
+        />
+        <circle
+          class="Header__shape littleCircle"
+          fill="#0f1c70"
+          cx="1036.52"
+          cy="203.17"
+          r="27"
+        />
+      </svg>
+      <section class="absolute w-full mt-24">
+        <div class="mx-auto px-4 h-full">
+          <div class="flex content-center items-center justify-center h-full">
+            <div class="w-full lg:w-5/12 px-4 pt-32 bg-white dark:bg-dark-main">
+              <div
+                class="relative flex flex-col min-w-0 break-words w-full mb-6 "
+              >
+                <div class="rounded-t mb-0 px-6 py-6">
+                  <div class="text-center mb-3">
+                    <h6 class="text-gray-800 dark:text-gray-50 text-sm ">
+                      Entrar Com
+                    </h6>
+                  </div>
+                  <div class="btn-wrapper text-center">
+                    <button
+                      class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs"
+                      type="button"
                       style="transition: all 0.15s ease 0s;"
-                    /><span class="ml-2 text-sm font-semibold text-gray-700"
-                      >Remember me</span
                     >
-                  </label>
-                </div>
-                <div class="text-right">
-                  <label
-                    class="inline-flex items-center cursor-pointer text-right"
-                  >
-                    <a class="ml-2 text-sm font-semibold text-gray-900"
-                      >Esqueceu a senha?</a
+                      <img
+                        alt="..."
+                        class="w-5 mr-1"
+                        src="../assets/images/github.png"
+                      />Github
+                    </button>
+                    <button
+                      class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center  text-xs"
+                      type="button"
+                      style="transition: all 0.15s ease 0s;"
                     >
-                  </label>
+                      <img
+                        alt="..."
+                        class="w-5 mr-1"
+                        src="../assets/images/google.png"
+                      />Google
+                    </button>
+                  </div>
+                  <hr class="mt-6 border-b-2 dark:border-white " />
                 </div>
-                <div class="text-center mt-6">
-                  <button
-                    class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                    type="button"
-                    style="transition: all 0.15s ease 0s;"
+                <div class="flex-auto px-4 lg:px-5 py-6 pt-0">
+                  <div
+                    class="text-gray-800 dark:text-gray-50 text-sm font-normal mb-3"
                   >
-                    Login
-                  </button>
+                    <small>Ou faça login com credenciais</small>
+                  </div>
+                  <form>
+                    <div class="relative w-full mb-3">
+                      <CustomInput :label="'Email'" :name="'femail'" />
+                    </div>
+                    <div class="relative w-full mb-3">
+                      <CustomInput :label="'Senha'" :name="'fsenha'" />
+                    </div>
+                    <div>
+                      <label class="inline-flex items-center cursor-pointer">
+                        <input
+                          id="customCheckLogin"
+                          type="checkbox"
+                          class="form-checkbox text-gray-800 ml-1 w-5 h-5"
+                          style="transition: all 0.15s ease 0s;"
+                        /><span
+                          class="ml-2 text-sm font-semibold text-gray-800 dark:text-gray-50"
+                          >Remember me</span
+                        >
+                      </label>
+                    </div>
+                    <div class="text-right">
+                      <label
+                        class="inline-flex items-center cursor-pointer text-right"
+                      >
+                        <a class="ml-2 text-sm font-semibold text-blue-600"
+                          >Esqueceu a senha?</a
+                        >
+                      </label>
+                    </div>
+                    <div class="text-center mt-6">
+                      <button
+                        class="focus:outline-none text-white py-2.5 px-5 rounded-lg bg-blue-600 hover:bg-blue-700 w-full"
+                        type="button"
+                        style="transition: all 0.15s ease 0s;"
+                      >
+                        Login
+                      </button>
+                    </div>
+                  </form>
                 </div>
-              </form>
-            </div>
-            <div class="flex w-1/2 text-center ml-6 mb-1">
-                  <p>Não possui uma conta? <a href="" class="text-blue-600">Criar</a></p>
+                <div
+                  class="flex w-1/2 text-center ml-6 mb-1 text-gray-800 dark:text-gray-50"
+                >
+                  <p>
+                    Não possui uma conta?
+                    <a href="" class="text-blue-600">Criar</a>
+                  </p>
+                </div>
               </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
+  </div>
 </template>
+<script>
+import CustomInput from "@/components/custom/custom-input.vue";
+import NavBar from "@/components/NavBar.vue";
+
+export default {
+  components: {
+    CustomInput,
+    NavBar,
+  },
+};
+</script>
+<style lang="scss" scoped>
+.Header__shape {
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(0.18, 1.17, 0.03, 1.46);
+  animation-fill-mode: backwards;
+  transform-origin: center;
+  // this here is the good stuff
+  transform-box: fill-box;
+}
+
+// aaand the rest of the cod
+
+.Header {
+  position: relative;
+  min-height: 100vh;
+}
+
+.Header__svg {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  will-change: transform;
+}
+.Header__title {
+  font-family: Avenir, Futura, "Open Sans", "Gill Sans", "Helvetica Neue", Ariel,
+    sans-serif;
+  font-weight: bold;
+  font-size: 6vw;
+  margin: 0;
+}
+
+.bigSquare {
+  animation-name: bigSquare;
+}
+@keyframes bigSquare {
+  from {
+    transform: translateY(10%) rotate(-80deg) scale(0);
+  }
+  to {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+}
+.littleSquare {
+  animation-name: littleSquare;
+}
+@keyframes littleSquare {
+  from {
+    transform: translate(226%, 183%) rotate(140deg) scale(0);
+  }
+  to {
+    transform: translate(0%, 0%) rotate(0deg) scale(1);
+  }
+}
+.triangle {
+  animation-name: triangle;
+}
+@keyframes triangle {
+  from {
+    transform: rotate(-140deg) scale(0);
+  }
+  to {
+    transform: rotate(0deg) scale(1);
+  }
+}
+.hoop {
+  animation-name: hoop;
+}
+@keyframes hoop {
+  from {
+    transform: translate(-160%, -33%) scale(0);
+  }
+  to {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+.bigCircle {
+  animation-name: bigCircle;
+}
+@keyframes bigCircle {
+  from {
+    transform: scale(0) translate(60%, 3%);
+  }
+  to {
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+.littleCircle {
+  animation-name: littleCircle;
+}
+@keyframes littleCircle {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+// some lovely sass fun to stagger the animation
+
+@for $i from 1 to 12 {
+  .Header__shape:nth-child(#{$i}) {
+    animation-delay: $i * 0.16s;
+  }
+}
+</style>

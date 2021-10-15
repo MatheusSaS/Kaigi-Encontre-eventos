@@ -1,7 +1,18 @@
-<template >
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
+<template>
   <div class="NavBar">
     <nav
-      class="bg-white dark:bg-dark-second h-max md:h-14 w-full shadow flex flex-col md:flex-row md:justify-between fixed top-0 z-50 border-b dark:border-dark-third"
+      class="bg-white dark:bg-dark-main h-max md:h-14 w-full  flex flex-col md:flex-row md:justify-between fixed top-0 z-50  dark:border-dark-third"
     >
       <!-- LEFT NAV -->
       <div class="flex items-center justify-between w-full md:w-max px-4 ">
@@ -30,18 +41,41 @@
             <i class="fas fa-angle-down text-gray-700 dark:text-dark-txt"></i>
           </div>
           <!-- BUSCA -->
-          <div
-            class="relative bg-gray-100 dark:bg-dark-third px-2 py-2  h-10  sm:h-11 lg:h-10 w-10 sm:w-96 lg:w-96 xl:w-96 xl:pl-3 xl:pr-8 rounded-full flex items-center justify-center cursor-pointer m-1"
+          <button
+            type="button"
+            class="group leading-6 font-medium  items-center space-x-3 sm:space-x-4 text-gray-600 dark:text-gray-50 transition-colors duration-200 w-full py-2 ml-4 hidden md:flex"
           >
-            <i
-              class="fas fa-search text-gray-500 text-xl xl:mr-2 dark:text-dark-txt"
-            ></i>
-            <input
-              type="text"
-              placeholder="Buscar"
-              class="outline-none bg-transparent hidden sm:inline-block w-96"
-            />
-          </div>
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              class="text-gray-600 dark:text-gray-50 group-hover:text-gray-400 dark:group-hover:text-gray-300 transition-colors duration-200"
+            >
+              <path
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+            <span>
+              Pesquisa rápida 
+              <span class="hidden sm:inline">
+                para qualquer coisa
+              </span>
+            </span>
+            <span
+              style="opacity: 1;"
+              class="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300 rounded-md"
+              ><span class="sr-only">Press </span
+              ><kbd class="font-sans"
+                ><abbr title="Control" class="no-underline">Ctrl </abbr></kbd
+              ><span class="sr-only"> and </span><kbd class="font-sans">K</kbd
+              ><span class="sr-only"> to search</span></span
+            >
+          </button>
+
           <!-- MD ITENS LEFT -->
           <div
             class="text-2xl grid place-items-center md:hidden bg-gray-200 dark:bg-dark-third rounded-full w-10 h-10 cursor-pointer hover:bg-gray-300 dark:text-dark-txt m-1"
@@ -65,29 +99,41 @@
 
       <!-- MAIN NAV -->
       <ul class="flex w-full lg:w-max items-center justify-center mr-24">
-        <li class="w-1/5 md:w-max text-center">
+        <li class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50">
           <router-link
-            to="/home"
-            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative "
-            :class="$route.params.route==='home' ? 'border-b-4 text-blue-500 border-blue-500': ''"
+            to="/"
+            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded hover:bg-gray-100 dark:hover:bg-dark-third  relative "
+            :class="
+              $route.name === 'Home'
+                ? 'border-b-4 text-blue-500 border-blue-500'
+                : ''
+            "
           >
             <i class="fas fa-home "></i>
           </router-link>
         </li>
-        <li class="w-1/5 md:w-max text-center">
+        <li class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50">
           <router-link
             to="/my-events"
-            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative"
-            :class="$route.params.route==='my-events' ? 'border-b-4 text-blue-500 border-blue-500' : ''" 
+            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded hover:bg-gray-100 dark:hover:bg-dark-third  relative"
+            :class="
+              $route.name === 'my-events'
+                ? 'border-b-4 text-blue-500 border-blue-500'
+                : ''
+            "
           >
             <i class="fas fa-list-ul"></i>
           </router-link>
         </li>
-        <li class="w-1/5 md:w-max text-center">
+        <li class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50">
           <router-link
-            to="/dashboard"
-            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative"
-            :class="$route.params.route==='dashboard' ? 'border-b-4 text-blue-500 border-blue-500' : ''" 
+            to="/dashboard/home"
+            class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded  hover:bg-gray-100 dark:hover:bg-dark-third  relative"
+            :class="
+              $route.name === 'dashboard'
+                ? 'border-b-4 text-blue-500 border-blue-500'
+                : ''
+            "
           >
             <i class="fas fa-columns"></i>
           </router-link>
@@ -95,12 +141,87 @@
         <li
           class="absolute bottom-0 right-1 md:w-max text-center inline-block md:hidden"
         >
-          <a
-            href="#"
+          <button
+            v-on:click="openMobileMenu()"
+            id="buttonmodal"
             class="w-full text-3xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded text-gray-600 hover:bg-gray-100 dark:hover:bg-dark-third dark:text-dark-txt relative"
           >
             <i class="fas fa-bars"></i>
-          </a>
+          </button>
+          <!-- Mobile Menu -->
+          <div
+            class="mobile-menu-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster dark:bg-dark-third border border-dark-third blur-3xl"
+            style=" background: rgba( 255, 255, 255, 0.6 );
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 20px );
+                    -webkit-backdrop-filter: blur( 20px );
+                    border: 1px solid rgba( 255, 255, 255, 0.18 ); display: none;"
+          >
+            <div
+              class="shadow-lg modal-container bg-white dark:bg-dark-second w-11/12 md:max-w-2xl mx-auto rounded z-50 overflow-y-auto"
+            >
+              <div class="modal-content py-4 text-left px-6">
+                <!--Title-->
+                <div class="flex justify-between items-center pb-3">
+                  <div
+                    v-on:click="coloseMobileMenu()"
+                    class="modal-close cursor-pointer z-50"
+                  >
+                    <i class="fas fa-times text-gray-800 dark:text-white"></i>
+                  </div>
+                </div>
+
+                <div
+                  class="relative bg-gray-100 dark:bg-dark-third px-2 py-2 h-10 w-auto pr-8 rounded-full flex items-center justify-center cursor-pointer m-1"
+                >
+                  <i
+                    class="fas fa-search text-gray-500 text-xl mr-2 dark:text-dark-txt"
+                  ></i>
+                  <input
+                    type="text"
+                    placeholder="Buscar"
+                    class="outline-none bg-transparent inline-block w-96"
+                  />
+                </div>
+                <!--Body-->
+                <div class="my-5 text-gray-900 dark:text-white">
+                  <div
+                    class="flex-1 lg:flex-initial w-full rounded-t-lg bg-whitedark:bg-dark-second mt-4 sm:-mt-4 z-30 flex flex-col "
+                  >
+                    <div
+                      class="w-full mt-5 text-lg font-bold border-0 border-t border-grey-light border-solid dark:text-white"
+                    >
+                      <i class="fas fa-search-location text-blue-500 mt-5"></i>
+                      <span class="text-gray-700 dark:text-white ml-2"
+                        >Localização atual</span
+                      >
+                      <div
+                        class="text-sm text-gray-600 dark:text-gray-300 font-light ml-6"
+                      >
+                        Encontre eventos perto de você
+                      </div>
+                      <table class="w-full mt-5">
+                        <tbody class="justify-between overflow-y-scroll">
+                          <tr
+                            class="relative transform scale-100 border-b border-t border-grey-light border-solid cursor-default text-left text-lg flex flex-col p-3"
+                          >
+                            <td class="whitespace-no-wrap">
+                              <i
+                                class="fas fa-map-marker-alt text-blue-500"
+                              ></i>
+                              <span class="dark:text-white ml-2 font-medium"
+                                >Fernandopolis</span
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
       <!-- END MAIN NAV -->
@@ -133,7 +254,7 @@
             />
             <span class="mx-2 font-semibold dark:text-dark-txt">Tuat</span>
           </button>
-          <transition :name="'fade'">
+          <transition name="fade" mode="out-in">
             <div
               class="bg-white dark:bg-dark-second dropdown-menu text-white mt-14 ml-3 rounded absolute z-10 shadow-lg w-40 max-w-xs border border-solid dark:border-dark-third"
               v-if="show"
@@ -142,34 +263,39 @@
                 <router-link
                   to="/about"
                   class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  >Sobre</router-link>
-                  <a
+                  >Sobre</router-link
+                >
+                <a
                   href=""
                   class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
                   :class="''"
-                  >a</a>
-                  <a
+                  >a</a
+                >
+                <a
                   href=""
                   class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
                   :class="''"
-                  >a</a>
-                  <a
+                  >a</a
+                >
+                <a
                   href=""
                   class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
                   :class="''"
-                  >a</a>
-                  <a
+                  >a</a
+                >
+                <a
                   href=""
                   class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
                   :class="''"
-                  >a</a>
+                  >a</a
+                >
               </ul>
             </div>
           </transition>
         </li>
         <li>
           <div
-           v-on:click="darkmode()"
+            v-on:click="darkmode()"
             class="hidden md:grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
             id="dark-mode-toggle"
           >
@@ -180,10 +306,11 @@
           <div
             class="grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
           >
-            <i class="fas fa-angle-down text-gray-600 dark:text-dark-txt"></i> 
+            <i class="fas fa-angle-down text-gray-600 dark:text-dark-txt"></i>
           </div>
-        </li>        
+        </li>
       </ul>
+
       <div
         class="main-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster dark:bg-dark-third border border-dark-third "
         style="background: rgba(0,0,0,.7); display: none;"
@@ -284,6 +411,20 @@ export default {
     },
     modalClose() {
       const modal = document.querySelector(".main-modal");
+      modal.classList.remove("fadeIn");
+      modal.classList.add("fadeOut");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 100);
+    },
+    openMobileMenu() {
+      const modal = document.querySelector(".mobile-menu-modal");
+      modal.classList.remove("fadeOut");
+      modal.classList.add("fadeIn");
+      modal.style.display = "flex";
+    },
+    coloseMobileMenu() {
+      const modal = document.querySelector(".mobile-menu-modal");
       modal.classList.remove("fadeIn");
       modal.classList.add("fadeOut");
       setTimeout(() => {
