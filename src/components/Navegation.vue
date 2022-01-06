@@ -57,7 +57,7 @@
             Aprenda, divirta-se ou empreenda com eventos presenciais, online e
             conteúdos gravados.
           </p>
-          <div class="flex mt-3">
+          <div class="flex mt-3" v-if="logged">
             <router-link
               to="/create-event"
               type="button"
@@ -74,70 +74,59 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-between items-center px-4 h-4 group mt-24 mb-5">
-      <span class="font-semibold text-gray-800 text-lg dark:text-gray-100">
-        Recomendados para você
-      </span>
-    </div>
 
-    <!-- CIRCLE -->
-    <div
-      class="text-gray-800 dark:text-gray-50 mt-4 h-32 w-32"
-    >
-      <div class="rounded-full h-32 w-32 flex items-center justify-center bg-gray-900">
-        Circle
-      </div>
-      <div class="relative">
-        <p class="text-center mt-1">Circle</p>
-      </div>      
-    </div>
-
-    <div class="flex justify-between items-center px-4 h-4 group mt-16">
+    <div class="flex justify-between items-center px-4 h-4 group mt-28">
       <span class="font-semibold text-gray-800 text-lg dark:text-gray-100"
         >Vistos recentemente por você</span
       >
     </div>
 
     <!-- Card -->
-    <div
-      class="dark:text-gray-50 rounded-lg "
-    >
-      <div class="px-1 grid grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4">
+    <div class="dark:text-gray-50 rounded-lg ">
+      <div class="w-full ">
         <!-- CARD -->
-        <div class="py-4 px-1 w-56 md:w-52 lg:w-56 xl:w-60 2xl:w-72">
-          <a href="/donee/donee-3">
-            <div
-              class="relative rounded-lg text-gray-800 hover:shadow-xl dark:hover:bg-dark-second "
-            >
-              <div
-                class="right-0 mt-4 rounded-l-full absolute text-center font-bold text-xs text-white px-2 py-1 bg-yellow-500"
-              >
-                0 Visualização
-              </div>
-              <img
-                src="https://source.unsplash.com/MNtag_eXMKw/1600x900"
-                class="h-32 rounded-lg w-full object-cover"
-              />
-              <div class="p-2">
-                <div class="font-title text-red-600 text-left">
-                  18 OUT <span class="text-gray-400">></span> 20 OUT
-                </div>
+        <carousel :items-to-show="4">
+          <slide v-for="value in events.events" :key="value.public_id">
+            <div class="py-4 px-1 w-96 md:w-52 lg:w-56 xl:w-60 2xl:w-72">
+              <a :href="'/event/'+value.public_id">
+                <div
+                  class="relative rounded-lg text-gray-800 hover:shadow-xl dark:hover:bg-dark-second "
+                >
+                  <div
+                    class="right-0 mt-4 rounded-l-full absolute text-center font-bold text-xs text-white px-2 py-1 bg-yellow-500"
+                  >
+                    0 Visualização
+                  </div>
+                  <img
+                    :src="value.image"
+                    class="h-32 rounded-lg w-full object-cover"
+                  />
+                  <div class="p-2">
+                    <div class="font-title text-red-600 text-left">
+                      18 OUT <span class="text-gray-400">></span> 20 OUT
+                    </div>
 
-                <div
-                  class="text-sm font-semibold my-2 text-gray-800 dark:text-gray-50 text-left"
-                >
-                  Kumpulan Narasi Tidak Lazim
+                    <div
+                      class="text-sm font-semibold my-2 text-gray-800 dark:text-gray-50 text-left"
+                    >
+                      {{ value.name }}
+                    </div>
+                    <div
+                      class="text-sm font-light my-2 text-gray-800 dark:text-gray-50 text-left"
+                    >
+                      {{ value.city }} - {{ value.state }}
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="text-sm font-light my-2 text-gray-800 dark:text-gray-50 text-left"
-                >
-                  Fernandopolis - São Paulo - SP
-                </div>
-              </div>
+              </a>
             </div>
-          </a>
-        </div>
-        
+          </slide>
+
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
       </div>
     </div>
 
@@ -146,13 +135,35 @@
         >Em destaque</span
       >
     </div>
-    <div
-      class="shadow bg-white dark:bg-dark-second dark:text-gray-50 mt-4 rounded-lg"
-    >
-      <div class="text-justify px-4 py-2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-        autem earum cum ullam odio, molestias maxime aperiam in id aspernatur
-        vel ratione odit molestiae minus ipsa obcaecati quia! Doloribus, illum.
+    <div class="dark:text-gray-50 rounded-lg ">
+      <div class="w-full ">
+        <!-- CARD -->
+        <carousel>
+          <slide v-for="value in events.events" :key="value.public_id">
+            <div class="py-4 px-1 w-full h-96">
+              <a :href="'/event/' + value.public_id">
+                <div
+                  class="relative rounded-lg text-gray-800 hover:shadow-xl dark:hover:bg-dark-second "
+                >
+                  <div
+                    class="right-0 mt-4 rounded-l-full absolute text-center font-bold text-xs text-white px-2 py-1 bg-yellow-500"
+                  >
+                    0 Visualização
+                  </div>
+                  <img
+                    :src="value.image"
+                    class="h-96 rounded-lg w-full object-cover"
+                  />
+                </div>
+              </a>
+            </div>
+          </slide>
+
+          <template #addons>
+            <navigation />
+            <pagination />
+          </template>
+        </carousel>
       </div>
     </div>
 
@@ -161,21 +172,70 @@
         >Cidades</span
       >
     </div>
-    <div
-      class="shadow bg-white dark:bg-dark-second dark:text-dark-txt mt-4 rounded-lg"
-    ></div>
+    <div class="dark:text-gray-50 rounded-lg mb-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full h-80">
+                    <img class="object-center object-cover w-full h-full" src="https://images.sympla.com.br/5dbc8bf6d3350.jpg" alt="photo">
+                </div>
+            </div>
+            <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full h-80">
+                    <img class="object-center object-cover w-full h-full" src="https://images.sympla.com.br/5dbc8ae79ba97.jpg" alt="photo">
+                </div>
+            </div>
+            <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full h-80">
+                    <img class="object-center object-cover w-full h-full" src="https://images.sympla.com.br/5dbc8b03840fb.jpg" alt="photo">
+                </div>
+            </div>    
+            <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row">
+                <div class="w-full h-80">
+                    <img class="object-center object-cover w-full h-full" src="https://images.sympla.com.br/5dbc8bc2de73e.jpg" alt="photo">
+                </div>
+            </div>        
+        </div>
+    </div>
   </div>
 </template>
 <script>
 // @ is an alias to /src
+import Event from "@/services/Events.js";
+
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
 export default {
   name: "Navegation",
-  components: {},
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+  },
+  data() {
+    return {
+      events: [],
+      city:[],
+      loged:true,
+    };
+  },
+  mounted() {
+    Event.Event().then((response) => {
+      this.events = response.data;
+    });
+    Event.City().then((response) => {
+      this.city = response.data;
+    });
+    if (localStorage.getItem("public_id")) {
+      this.logged = true
+    }else{
+      this.logged = false
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
-
 .Header__shape {
   animation-duration: 4s;
   animation-timing-function: cubic-bezier(0.18, 1.17, 0.03, 1.46);

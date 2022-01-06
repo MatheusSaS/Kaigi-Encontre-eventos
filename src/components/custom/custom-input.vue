@@ -11,7 +11,7 @@
         :type="togglePassword ? '' : 'text'"
         :name="name"
         :id="name"
-        v-model="value"
+        v-model="model"
         class="CustomInput"
       />
     </div>
@@ -25,6 +25,20 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    model: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit('input', value);
+      },
     },
   },
 };

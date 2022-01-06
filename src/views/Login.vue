@@ -53,69 +53,97 @@
           <div class="flex content-center items-center justify-center h-full">
             <div class="w-full lg:w-5/12 px-4 pt-32 bg-white dark:bg-dark-main">
               <div
-                class="relative flex flex-col min-w-0 break-words w-full mb-6 "
+                class="relative flex flex-col min-w-0 break-words w-full mb-6"
               >
                 <div class="rounded-t mb-0 px-6 py-6">
-                  <div class="text-center mb-3">
-                    <h6 class="text-gray-800 dark:text-gray-50 text-sm ">
-                      Entrar Com
-                    </h6>
-                  </div>
-                  <div class="btn-wrapper text-center">
-                    <button
-                      class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs"
-                      type="button"
-                      style="transition: all 0.15s ease 0s;"
-                    >
-                      <img
-                        alt="..."
-                        class="w-5 mr-1"
-                        src="../assets/images/github.png"
-                      />Github
-                    </button>
-                    <button
-                      class="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center  text-xs"
-                      type="button"
-                      style="transition: all 0.15s ease 0s;"
-                    >
-                      <img
-                        alt="..."
-                        class="w-5 mr-1"
-                        src="../assets/images/google.png"
-                      />Google
-                    </button>
-                  </div>
-                  <hr class="mt-6 border-b-2 dark:border-white " />
+                
+                  <hr class="mt-6 border-b-2 dark:border-white" />
                 </div>
                 <div class="flex-auto px-4 lg:px-5 py-6 pt-0">
                   <div
-                    class="text-gray-800 dark:text-gray-50 text-sm font-normal mb-3"
+                    class="
+                      text-gray-800
+                      dark:text-gray-50
+                      text-sm
+                      font-normal
+                      mb-3
+                    "
                   >
                     <small>Ou faça login com credenciais</small>
                   </div>
-                  <form>
+                  <form @submit.prevent="Login">
                     <div class="relative w-full mb-3">
-                      <CustomInput :label="'Email'" :name="'femail'" />
+                      <div class="custom-input">
+                        <label
+                          for="email"
+                          class="text-sm text-gray-700 dark:text-white"
+                          >Email</label
+                        >
+                        <div class="flex">
+                          <div
+                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"
+                          ></div>
+                          <input
+                            type="email"
+                            placeholder="email@example.com"
+                            name="femail"
+                            id="femail"
+                            v-model="email"
+                            class="CustomInput"
+                          />
+                        </div>                                                                
+                      </div>
                     </div>
+
                     <div class="relative w-full mb-3">
-                      <CustomInput :label="'Senha'" :name="'fsenha'" />
+                      <div class="custom-input">
+                        <label
+                          for="password"
+                          class="text-sm text-gray-700 dark:text-white"
+                          >Senha</label
+                        >
+                        <div class="flex">
+                          <div
+                            class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"
+                          ></div>
+                          <input
+                            type="password"
+                            name="fpasswordl"
+                            id="fpassword"
+                            v-model="password"
+                            class="CustomInput"
+                          />
+                        </div>                               
+                      </div>
                     </div>
+
                     <div>
                       <label class="inline-flex items-center cursor-pointer">
                         <input
                           id="customCheckLogin"
                           type="checkbox"
                           class="form-checkbox text-gray-800 ml-1 w-5 h-5"
-                          style="transition: all 0.15s ease 0s;"
+                          style="transition: all 0.15s ease 0s"
                         /><span
-                          class="ml-2 text-sm font-semibold text-gray-800 dark:text-gray-50"
+                          class="
+                            ml-2
+                            text-sm
+                            font-semibold
+                            text-gray-800
+                            dark:text-gray-50
+                          "
                           >Remember me</span
                         >
                       </label>
                     </div>
                     <div class="text-right">
                       <label
-                        class="inline-flex items-center cursor-pointer text-right"
+                        class="
+                          inline-flex
+                          items-center
+                          cursor-pointer
+                          text-right
+                        "
                       >
                         <a class="ml-2 text-sm font-semibold text-blue-600"
                           >Esqueceu a senha?</a
@@ -124,9 +152,18 @@
                     </div>
                     <div class="text-center mt-6">
                       <button
-                        class="focus:outline-none text-white py-2.5 px-5 rounded-lg bg-blue-600 hover:bg-blue-700 w-full"
-                        type="button"
-                        style="transition: all 0.15s ease 0s;"
+                        class="
+                          focus:outline-none
+                          text-white
+                          py-2.5
+                          px-5
+                          rounded-lg
+                          bg-blue-600
+                          hover:bg-blue-700
+                          w-full
+                        "
+                        type="submit"
+                        style="transition: all 0.15s ease 0s"
                       >
                         Login
                       </button>
@@ -134,7 +171,15 @@
                   </form>
                 </div>
                 <div
-                  class="flex w-1/2 text-center ml-6 mb-1 text-gray-800 dark:text-gray-50"
+                  class="
+                    flex
+                    w-1/2
+                    text-center
+                    ml-6
+                    mb-1
+                    text-gray-800
+                    dark:text-gray-50
+                  "
                 >
                   <p>
                     Não possui uma conta?
@@ -150,13 +195,47 @@
   </div>
 </template>
 <script>
-import CustomInput from "@/components/custom/custom-input.vue";
 import NavBar from "@/components/NavBar.vue";
+import User from "@/services/User";
+import Token from "@/services/Token";
+import router from "@/router/index";
+
+import { createToast } from "mosha-vue-toastify";
 
 export default {
   components: {
-    CustomInput,
     NavBar,
+  },
+  data() {
+    return {      
+        email: "",
+        password: "",      
+    }
+  },
+  setup() {
+    const toast = (type,msg) => {
+      createToast(msg,{type: type,transition: 'zoom',});
+    };
+    return { toast };
+  },
+  methods: {
+    Login() {
+      User.login(this.email,this.password)
+        .then((response) => {
+          localStorage.setItem('token',  response.data.token);
+          localStorage.setItem('public_id',  response.data.public_id);
+          localStorage.setItem("admin", response.data.admin);
+    
+          
+          Token.setToken()
+          
+          router.push({ name: 'Home',})
+          this.toast('success','Logado corretamente!');
+        })
+        .catch((e) => {
+          this.toast('danger',e.response.data["message"]);
+        });
+    },
   },
 };
 </script>
@@ -166,11 +245,9 @@ export default {
   animation-timing-function: cubic-bezier(0.18, 1.17, 0.03, 1.46);
   animation-fill-mode: backwards;
   transform-origin: center;
-  // this here is the good stuff
   transform-box: fill-box;
 }
 
-// aaand the rest of the cod
 
 .Header {
   position: relative;

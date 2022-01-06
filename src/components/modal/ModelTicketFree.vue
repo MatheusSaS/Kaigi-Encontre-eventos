@@ -22,10 +22,8 @@
               <i class="fas fa-times text-gray-800 dark:text-white"></i>
             </div>
           </div>
-          <Form
+          <form
             @submit="onSubmit"
-            :validation-schema="schema"
-            v-slot="{ errors }"
           >
             <div class="md:flex md:justify-between -mx-3 mt-5">
               <div class="w-full px-3 mb-5">
@@ -199,7 +197,7 @@
                 Cancelar
               </div>
             </div>
-          </Form>
+          </form>
         </div>
       </div>
     </div>

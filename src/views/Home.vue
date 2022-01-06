@@ -1,12 +1,10 @@
-<style></style>
-<template>
-  <NavBar />
-
+<template>  
   <div class="home">
+    <NavBar />
     <div v-if="$route.name === 'Home'">
       <div class="flex justify-center h-screen">
         <Category />
-        <Navegation />
+        <Navegation />        
       </div>
     </div>
     <div v-else-if="$route.name === 'my-events'">

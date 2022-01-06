@@ -37,7 +37,7 @@
             class="inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1 md:hidden"
           >
             <i class="fas fa-map-marker-alt text-blue-500"></i>
-            <span class="mx-2 font-semibold dark:text-dark-txt">Tuat</span>
+            <span class="mx-2 font-semibold dark:text-dark-txt">Fernandopolis</span>
             <i class="fas fa-angle-down text-gray-700 dark:text-dark-txt"></i>
           </div>
           <!-- BUSCA -->
@@ -60,7 +60,7 @@
               ></path>
             </svg>
             <span>
-              Pesquisa rápida 
+              Pesquisa rápida
               <span class="hidden sm:inline">
                 para qualquer coisa
               </span>
@@ -112,7 +112,11 @@
             <i class="fas fa-home "></i>
           </router-link>
         </li>
-        <li class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50">
+        <div v-if="user"></div>
+        <li
+          class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50"
+          v-if="user"
+        >
           <router-link
             to="/my-events"
             class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded hover:bg-gray-100 dark:hover:bg-dark-third  relative"
@@ -125,7 +129,10 @@
             <i class="fas fa-list-ul"></i>
           </router-link>
         </li>
-        <li class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50">
+        <li
+          class="w-1/5 md:w-max text-center text-gray-800 dark:text-gray-50"
+          v-if="user"
+        >
           <router-link
             to="/dashboard/home"
             class="w-full mt-1 text-2xl py-2 px-3 xl:px-12 cursor-pointer text-center inline-block rounded  hover:bg-gray-100 dark:hover:bg-dark-third  relative"
@@ -148,6 +155,7 @@
           >
             <i class="fas fa-bars"></i>
           </button>
+
           <!-- Mobile Menu -->
           <div
             class="mobile-menu-modal fixed w-full h-100 inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster dark:bg-dark-third border border-dark-third blur-3xl"
@@ -184,40 +192,60 @@
                   />
                 </div>
                 <!--Body-->
-                <div class="my-5 text-gray-900 dark:text-white">
-                  <div
-                    class="flex-1 lg:flex-initial w-full rounded-t-lg bg-whitedark:bg-dark-second mt-4 sm:-mt-4 z-30 flex flex-col "
-                  >
-                    <div
-                      class="w-full mt-5 text-lg font-bold border-0 border-t border-grey-light border-solid dark:text-white"
+                <div v-if="user">
+                  <ul class="list-none overflow-hidden rounded ">
+                    <button
+                      v-on:click="show = !show"
+                      type="button"
+                      class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                      id="menu-button"
+                      aria-expanded="true"
+                      aria-haspopup="true"
                     >
-                      <i class="fas fa-search-location text-blue-500 mt-5"></i>
-                      <span class="text-gray-700 dark:text-white ml-2"
-                        >Localização atual</span
-                      >
-                      <div
-                        class="text-sm text-gray-600 dark:text-gray-300 font-light ml-6"
-                      >
-                        Encontre eventos perto de você
+                      <img
+                        src="../assets/images/user.jpg"
+                        alt="Profile picture"
+                        class="rounded-full h-14 w-14"
+                      />
+                      <div class="flex items-center">
+                        <h1
+                          class="ml-2 font-semibold dark:text-dark-txt break-words "
+                        >
+                          {{ user["user"]["name"] }}
+                        </h1>
                       </div>
-                      <table class="w-full mt-5">
-                        <tbody class="justify-between overflow-y-scroll">
-                          <tr
-                            class="relative transform scale-100 border-b border-t border-grey-light border-solid cursor-default text-left text-lg flex flex-col p-3"
-                          >
-                            <td class="whitespace-no-wrap">
-                              <i
-                                class="fas fa-map-marker-alt text-blue-500"
-                              ></i>
-                              <span class="dark:text-white ml-2 font-medium"
-                                >Fernandopolis</span
-                              >
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                    </button>
+                  </ul>
+                  <ul class="list-none overflow-hidden rounded ">
+                    <button
+                      type="button"
+                      v-on:click="logout"
+                      class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:hover:text-red-500 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    >
+                      <i class="fas fa-sign-in-alt mt-1 mr-2 fa-lg "></i>
+                      <span>Logout</span>
+                    </button>
+                  </ul>
+                </div>
+                <div v-else>
+                  <ul class="list-none overflow-hidden rounded ">
+                    <router-link
+                      to="/login"
+                      class="flex py-2 px-5 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    >
+                      <i class="fas fa-user-lock mt-1 mr-2 fa-lg"></i>
+                      <span>Login</span>
+                    </router-link>
+                  </ul>
+                  <ul class="list-none overflow-hidden rounded ">
+                    <router-link
+                      to="/register"
+                      class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    >
+                      <i class="fas fa-user-plus mt-1 mr-2 fa-lg"></i>
+                      <span>Sign Up</span>
+                    </router-link>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -234,64 +262,9 @@
             class="inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
           >
             <i class="fas fa-map-marker-alt text-blue-500"></i>
-            <span class="mx-2 font-semibold dark:text-dark-txt">Tuat</span>
+            <span class="mx-2 font-semibold dark:text-dark-txt">Fernandopolis</span>
             <i class="fas fa-angle-down text-gray-700 dark:text-dark-txt"></i>
           </button>
-        </li>
-        <li class="h-10 hidden md:flex">
-          <button
-            v-on:click="show = !show"
-            type="button"
-            class="inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
-            id="menu-button"
-            aria-expanded="true"
-            aria-haspopup="true"
-          >
-            <img
-              src="../assets/images/user.jpg"
-              alt="Profile picture"
-              class="rounded-full h-9 w-9"
-            />
-            <span class="mx-2 font-semibold dark:text-dark-txt">Tuat</span>
-          </button>
-          <transition name="fade" mode="out-in">
-            <div
-              class="bg-white dark:bg-dark-second dropdown-menu text-white mt-14 ml-3 rounded absolute z-10 shadow-lg w-40 max-w-xs border border-solid dark:border-dark-third"
-              v-if="show"
-            >
-              <ul class="list-none overflow-hidden rounded">
-                <router-link
-                  to="/about"
-                  class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  >Sobre</router-link
-                >
-                <a
-                  href=""
-                  class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  :class="''"
-                  >a</a
-                >
-                <a
-                  href=""
-                  class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  :class="''"
-                  >a</a
-                >
-                <a
-                  href=""
-                  class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  :class="''"
-                  >a</a
-                >
-                <a
-                  href=""
-                  class="flex py-2 px-4 transition duration-300 text-gray-700 dark:text-dark-txt"
-                  :class="''"
-                  >a</a
-                >
-              </ul>
-            </div>
-          </transition>
         </li>
         <li>
           <div
@@ -303,11 +276,91 @@
           </div>
         </li>
         <li>
-          <div
+          <button
+            type="button"
+            v-on:click="show = !show"
             class="grid place-items-center bg-gray-200 dark:bg-dark-third dark:text-dark-txt rounded-full mx-1 p-3 cursor-pointer hover:bg-gray-300 relative"
           >
             <i class="fas fa-angle-down text-gray-600 dark:text-dark-txt"></i>
-          </div>
+          </button>
+          <transition name="fade" mode="out-in">
+            <div
+              class="bg-white dark:bg-dark-second dropdown-menu text-white mt-2 -ml-64 w-72 rounded absolute  shadow-lg max-w-xs border border-solid dark:border-dark-third"
+              v-if="show"
+            >
+              <div v-if="user">
+                <ul class="list-none overflow-hidden rounded ">
+                  <button
+                    v-on:click="show = !show"
+                    type="button"
+                    class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    <img
+                      src="../assets/images/user.jpg"
+                      alt="Profile picture"
+                      class="rounded-full h-14 w-14"
+                    />
+                    <div class="flex items-center">
+                      <h1
+                        class="ml-2 font-semibold dark:text-dark-txt break-words "
+                      >
+                        {{ user["user"]["name"] }}
+                      </h1>
+                    </div>
+                  </button>
+                </ul>
+                <ul class="list-none overflow-hidden rounded ">
+                  <div v-if="admin">
+                    <router-link
+                      to="/dashboard/admin/category"
+                      class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:hover:text-red-500 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    >
+                      <i class="fas fa-closed-captioning mt-1 mr-2 fa-lg "></i>
+                      <span>Categoria</span>
+                    </router-link>
+                    <router-link
+                      to="/dashboard/admin/subject"
+                      class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:hover:text-red-500 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                    >
+                      <i class="fas fa-align-center mt-1 mr-2 fa-lg "></i>
+                      <span>Assuntos</span>
+                    </router-link>
+                  </div>
+                  <button
+                    type="button"
+                    v-on:click="logout"
+                    class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:hover:text-red-500 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                  >
+                    <i class="fas fa-sign-in-alt mt-1 mr-2 fa-lg "></i>
+                    <span>Logout</span>
+                  </button>
+                </ul>
+              </div>
+              <div v-else>
+                <ul class="list-none overflow-hidden rounded ">
+                  <router-link
+                    to="/login"
+                    class="flex py-2 px-5 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                  >
+                    <i class="fas fa-user-lock mt-1 mr-2 fa-lg"></i>
+                    <span>Login</span>
+                  </router-link>
+                </ul>
+                <ul class="list-none overflow-hidden rounded ">
+                  <router-link
+                    to="/register"
+                    class="flex py-2 px-4 w-full transition duration-300 text-gray-700 dark:text-dark-txt hover:bg-gray-100 dark:hover:bg-dark-third"
+                  >
+                    <i class="fas fa-user-plus mt-1 mr-2 fa-lg"></i>
+                    <span>Sign Up</span>
+                  </router-link>
+                </ul>
+              </div>
+            </div>
+          </transition>
         </li>
       </ul>
 
@@ -384,13 +437,24 @@
 </template>
 
 <script>
+import User from "@/services/User";
+import router from "@/router/index";
+
+import { createToast } from "mosha-vue-toastify";
+import VueGeolocation from "vue-browser-geolocation";
+
 export default {
   name: "NavBar",
-  props: {},
   data: function() {
     return {
       show: false,
-      cars: ["BMW", "Mercedes", "Audi", "Volvo"],
+      admin: false,
+      user: null,
+      options: {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      },
     };
   },
   methods: {
@@ -431,6 +495,39 @@ export default {
         modal.style.display = "none";
       }, 100);
     },
+    logout() {
+      localStorage.removeItem("token");
+      localStorage.removeItem("public_id");
+      localStorage.removeItem("admin");
+
+      router.push({ name: "Login" });
+    },
+  },
+  setup() {
+    const toast = (type, msg) => {
+      createToast(msg, { type: type, transition: "zoom" });
+    };
+    return { toast };
+  },
+  mounted() {
+    
+    VueGeolocation.getLocation(this.options).then((coordinates) => {
+      console.log(coordinates);
+    });
+    if (localStorage.getItem("public_id")) {
+      User.user(localStorage.getItem("public_id"))
+        .then((response) => {
+          this.user = response.data;
+          console.log(this.user.user.admin);
+          if(this.user.user.admin){
+            this.admin = true;
+          }
+        })
+        .catch((e) => {
+          this.toast("danger", e.response.data["message"]);
+        });
+    }
+    
   },
 };
 </script>

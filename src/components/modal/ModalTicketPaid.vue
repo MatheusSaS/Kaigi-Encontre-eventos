@@ -23,45 +23,34 @@
               <i class="fas fa-times text-gray-800 dark:text-white"></i>
             </div>
           </div>
-          <Form
-            @submit="onSubmit"
-            :validation-schema="schema"
-            v-slot="{ errors }"
-          >
+        <h1>{{testa}}</h1>
+          <form @submit.prevent="CreateTicket">
             <div class="md:flex md:justify-between -mx-3 mt-5">
               <div class="w-full px-3 mb-5">
                 <label for="" class="text-sm text-gray-700 dark:text-white">
                   Nome Ingresso
                 </label>
                 <div class="flex">
-                  <Field
+                  <input
                     name="NameEvent"
-                    v-model="descriptionHelfprice"
+                    v-model="ticket.ticket_name"
                     type="text"
                     class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                    :class="{ 'border border-red-600': errors.NameEvent }"
                   />
                 </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.NameEvent }}
-                </label>
               </div>
               <div class="w-full px-3 mb-5">
                 <label for="" class="text-sm text-gray-700 dark:text-white"
                   >Quantidade</label
                 >
                 <div class="flex">
-                  <Field
-                    @keypress="validateNumber"
+                  <input
                     name="Amount"
-                    type="text"
+                    v-model="ticket.amount"
+                    type="number"
                     class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                    :class="{ 'border border-red-600': errors.Amount }"
                   />
                 </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.Amount }}
-                </label>
               </div>
               <div class="w-full sm:w-2/5 px-3 mb-5">
                 <label for="" class="text-sm text-gray-700 dark:text-white"
@@ -76,12 +65,12 @@
                         R$
                       </span>
                     </div>
-                    <Field
+                    <input
                       type="text"
                       name="Price"
+                      v-model="ticket.price"
                       class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
                       placeholder="0.00"
-                      :class="{ 'border border-red-600': errors.Price }"
                     />
                     <div class="absolute inset-y-0 right-0 flex items-center">
                       <label for="currency" class="sr-only">Currency</label>
@@ -96,16 +85,15 @@
                     </div>
                   </div>
                 </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.Price }}
-                </label>
               </div>
               <div class="w-15 px-3 mb-5">
                 <label for="" class="text-sm text-gray-700 dark:text-white"
                   >Total</label
                 >
                 <div class="flex mt-5">
-                  <p class="text-green-500">R$:10</p>
+                  <p class="text-green-500">
+                    {{ ticket.amount * ticket.price }}
+                  </p>
                 </div>
               </div>
             </div>
@@ -115,7 +103,7 @@
                 <input
                   type="checkbox"
                   value="True"
-                  v-model="halfprice"
+                  v-model="ticket.half"
                   class="form-checkbox h-5 w-5 text-gray-600"
                   unchecked
                 /><span class="ml-2 text-gray-700 dark:text-white"
@@ -124,43 +112,34 @@
               </label>
             </div>
 
-            <div v-if="halfprice === true">
+            <div v-if="ticket.half === true">
               <div class="md:flex md:justify-between -mx-3 mt-5">
                 <div class="w-full px-3 mb-5">
                   <label for="" class="text-sm text-gray-700 dark:text-white">
                     Nome meio impresso
                   </label>
                   <div class="flex">
-                    <Field
+                    <input
                       name="NameEventHelf"
                       type="text"
-                      v-model="descriptionHelfprice"
-                      class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-dark-second dark:text-gray-300 dark:bg-dark-second border focus:border-blue-600  dark:focus:border-blue-600 cursor-not-allowed"
-                      disabled
+                      v-model="ticket.half_description"
+                      class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
                     />
                   </div>
                 </div>
                 <div class="w-full px-3 mb-5">
-                  <label
-                    for=""
-                    class="text-sm text-gray-700 dark:text-white "
-                    :class="{
-                      'text-red-600 dark:text-red-600': errors.AmountHelf,
-                    }"
+                  <label for="" class="text-sm text-gray-700 dark:text-white "
                     >Quantidade</label
                   >
                   <div class="flex">
-                    <Field
+                    <input
                       @keypress="validateNumber"
+                      v-model="ticket.half_amount"
                       name="AmountHelf"
                       type="text"
                       class="w-full  pl-1 pr-3 py-2 mt-1 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                      :class="{ 'border border-red-600': errors.AmountHelf }"
                     />
                   </div>
-                  <label for="" class="text-sm text-red-600">
-                    {{ errors.AmountHelf }}
-                  </label>
                 </div>
                 <div class="w-full sm:w-2/5 px-3 mb-5">
                   <label for="" class="text-sm text-gray-700 dark:text-white"
@@ -175,12 +154,12 @@
                           R$
                         </span>
                       </div>
-                      <Field
+                      <input
                         type="text"
+                        v-model="ticket.half_price"
                         name="PriceHelf"
                         class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
                         placeholder="0.00"
-                        :class="{ 'border border-red-600': errors.PriceHelf }"
                       />
                       <div class="absolute inset-y-0 right-0 flex items-center">
                         <label for="currency" class="sr-only">Currency</label>
@@ -195,9 +174,6 @@
                       </div>
                     </div>
                   </div>
-                  <label for="" class="text-sm text-red-600">
-                    {{ errors.PriceHelf }}
-                  </label>
                 </div>
                 <div class="w-15 px-3 mb-5">
                   <label for="" class="text-sm text-gray-700 dark:text-white"
@@ -216,7 +192,7 @@
                   >Data / Horário de Início das Vendas</label
                 >
                 <DatePicker
-                  v-model="dateStartTicket"
+                  v-model="ticket.initial_date_time"
                   mode="dateTime"
                   is24hr
                   is-dark
@@ -237,7 +213,7 @@
                   >Data / Horário de Término das Vendas</label
                 >
                 <DatePicker
-                  v-model="dateEndTicket"
+                  v-model="ticket.final_date_time"
                   mode="dateTime"
                   is24hr
                   is-dark
@@ -267,16 +243,13 @@
                   >Mínima</label
                 >
                 <div class="flex">
-                  <Field
+                  <input
                     type="text"
+                    v-model="ticket.amount_min"
                     name="Amountminimum"
                     class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                    :class="{ 'border border-red-600': errors.Amountminimum }"
                   />
                 </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.Amountminimum }}
-                </label>
               </div>
 
               <div class="w-48 px-3 mb-5">
@@ -284,16 +257,13 @@
                   >Maxima</label
                 >
                 <div class="flex">
-                  <Field
+                  <input
                     type="text"
+                    v-model="ticket.amount_max"
                     name="Amountmax"
                     class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
-                    :class="{ 'border border-red-600': errors.Amountmax }"
                   />
                 </div>
-                <label for="" class="text-sm text-red-600">
-                  {{ errors.Amountmax }}
-                </label>
               </div>
 
               <div class="w-full px-3 mb-5">
@@ -302,11 +272,10 @@
                 >
                 <div class="flex">
                   <textarea
+                    v-model="ticket.description"
                     name="Description"
                     rows="2"
                     maxlength="110"
-                    x-model="maximum"
-                    x-ref="maximum"
                     class="w-full pl-7 pr-12 py-2 rounded-lg  outline-none text-black dark:text-white dark:bg-dark-third border focus:border-blue-600  dark:focus:border-blue-600"
                   ></textarea>
                 </div>
@@ -329,68 +298,73 @@
                 Cancelar
               </div>
             </div>
-          </Form>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Ticket from "@/services/Events.js";
+import { createToast } from "mosha-vue-toastify";
+
 import { DatePicker } from "v-calendar";
-import { Form, Field } from "vee-validate";
-import * as Yup from "yup";
 
 export default {
   name: "ModalTicketPaid",
   components: {
     DatePicker,
-    Form,
-    Field,
-  },
-  setup() {
-    const schema = Yup.object().shape({
-      NameEvent: Yup.string()
-        .min(3, "Minimo 3 caracteres!")
-        .required("Campo Obrigatório"),
-      Amount: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "A quantidade tem que ser maior que 0"),
-      Price: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
-      Amountminimum: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
-      Amountmax: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
-      AmountHelf: Yup.string()
-        .required("Campo  Obrigatório")
-        .min(1, "O valor menimo é 1"),
-      PriceHelf: Yup.string()
-        .min(1, "O valor menimo é 1")
-        .required("Campo  Obrigatório"),
-    });
-
-    const onSubmit = (values) => {
-      // display form values on success
-      alert("SUCCESS!! :-)\n\n" + JSON.stringify(values, null, 4));
-    };
-
-    return {
-      schema,
-      onSubmit,
-    };
   },
   data() {
     return {
-      dateStartTicket: new Date(),
-      dateEndTicket: new Date(),
       halfprice: "",
       descriptionHelfprice: "",
+      ticket: {
+        id_type_ticket: "",
+        user_id: "",
+        ticket_name: "",
+        amount: "",
+        price: "",
+        initial_date_time: "",
+        final_date_time: "",
+        amount_min: "",
+        amount_max: "",
+        description: "",
+        total: "",
+
+        half: false,
+        half_description: "",
+        half_amount: 0,
+        half_price: 0,
+        half_total: 0,
+      },      
     };
   },
+  setup() {
+    const toast = (type, msg) => {
+      createToast(msg, { type: type, transition: "zoom" });
+    };
+
+    return {
+      toast,
+    };
+  },  
   methods: {
+    CreateTicket() {
+      if (localStorage.getItem("public_id")) {
+        this.ticket.id_type_ticket = 1
+        this.ticket.user_id = localStorage.getItem("public_id");
+        this.ticket.total = (this.ticket.amount * this.ticket.price)
+        Ticket.createTicket(this.ticket)
+          .then((response) => {
+            this.toast("success", response.data["message"]);
+            this.modalClose()
+          })
+          .catch((e) => {
+            this.toast("danger", e.response.data["message"]);
+          });
+      }
+    },
     modalClose() {
       const modal = document.querySelector(".modal-pago");
       modal.classList.remove("fadeIn");
